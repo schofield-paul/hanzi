@@ -103,17 +103,17 @@ export const data: WordPair[] = [
   {
     id: 3,
     english_word: "morning",
-    chinese_character: "早上",
+    chinese_character: "早",
   },
   {
     id: 4,
     english_word: "to run",
-    chinese_character: "跑步",
+    chinese_character: "跑",
   },
   {
     id: 5,
     english_word: "to get up",
-    chinese_character: "起床",
+    chinese_character: "起",
   },
 ];
 
