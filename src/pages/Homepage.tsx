@@ -6,14 +6,14 @@ import Card from "../components/cards/Card";
 
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(null);
+  const [dataToggle, setDataToggle] = useState(1);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
   const handleItemClick = (value) => {
-    setSelectedValue(value);
+    setDataToggle(value);
     setIsDropdownOpen(false);
   };
 
@@ -27,13 +27,13 @@ function App() {
         </button>
         {isDropdownOpen && (
           <div className="dropdown-content">
-            <div onClick={() => handleItemClick("Option 1")}>Option 1</div>
-            <div onClick={() => handleItemClick("Option 2")}>Option 2</div>
-            <div onClick={() => handleItemClick("Option 3")}>Option 3</div>
+            <div onClick={() => handleItemClick(1)}>Word list 1</div>
+            <div onClick={() => handleItemClick(2)}>Word list 2</div>
+            <div onClick={() => handleItemClick(3)}>Word list 3</div>
           </div>
         )}
-        {selectedValue && <p>You selected: {selectedValue}</p>}
-        <Card />
+
+        <Card setToggle={dataToggle} />
       </div>
     </div>
   );
