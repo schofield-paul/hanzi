@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import HanziWriter from "hanzi-writer";
-import { data } from "../../data";
+import { data1, data2, data3 } from "../../data";
 import "./card.css";
 
-export default function Card() {
+export default function Card({ setToggle }) {
+  const data = [data1, data2, data3][setToggle - 1];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [writers, setWriters] = useState([]);
 
