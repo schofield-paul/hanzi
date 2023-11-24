@@ -23,7 +23,7 @@ app.get("/hanzi/:id", async (req, res) => {
   try {
     const hanzi = await pool.query("SELECT * FROM hanzi WHERE id = $1", [id]);
 
-    res.json(todo.rows[0]);
+    res.json(hanzi.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
