@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
 const pool = require("./db");
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
 
 // Routes
 
@@ -20,12 +22,19 @@ app.get("/hanzi", async (req, res) => {
 // Get a hanzi
 app.get("/hanzi/:id", async (req, res) => {
   const { id } = req.params;
+  console.log(id);
+  const hanziId = parseInt(id);
   try {
-    const hanzi = await pool.query("SELECT * FROM hanzi WHERE id = $1", [id]);
+    const hanzi = await pool.query("SELECT * FROM hanzi WHERE id = $1", [
+      hanziId,
+    ]);
 
-    res.json(todo.rows[0]);
+    console.log(hanzi.rows[0]);
+
+    res.json(hanzi.rows[0]);
   } catch (err) {
     console.error(err.message);
+    res.status(500).send("Error fetching hanzi");
   }
 });
 
