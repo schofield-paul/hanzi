@@ -1,4 +1,4 @@
-.App {
+.app {
   text-align: center;
   background-color: #282c34;
   color: white;
@@ -12,7 +12,7 @@ h1 {
   font-size: 3rem;
 }
 
-.content-container {
+.contentContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,6 +21,10 @@ h1 {
   font-size: calc(10px + 2vmin);
   background-color: #95acda;
   padding-top: 4rem;
+}
+
+.color {
+  background-color: #d35c00;
 }
 
 .btn {
@@ -36,7 +40,7 @@ h1 {
   cursor: pointer;
 }
 
-.start-btn {
+.startBtn {
   background-color: #33abcd;
   border: none;
   color: #282c34;
@@ -50,7 +54,7 @@ h1 {
   margin-top: 4rem;
 }
 
-.dropdown-content {
+.dropdownContent {
   display: flex;
   min-width: 15rem;
   justify-content: space-between;

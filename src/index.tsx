@@ -1,16 +1,22 @@
+// @ts-nocheck
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./pages/Selections/Selections";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Selections from "./pages/Selections/Selections";
-import Homepage from "./pages/Homepage/Homepage";
+import SelectionPage from "./pages/Selection/SelectionPage";
+import Application from "./pages/Application/ApplicationPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Homepage />,
+    element: <SelectionPage />,
+    errorElement: <div>404 Not Found</div>,
+  },
+  {
+    path: "/app",
+    element: <Application />,
     errorElement: <div>404 Not Found</div>,
   },
 ]);
