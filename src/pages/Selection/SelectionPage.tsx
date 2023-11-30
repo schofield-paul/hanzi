@@ -1,11 +1,8 @@
 // @ts-nocheck
 
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import classNames from "classnames";
-import style from "./SelectionPage.module.css";
-import Application from "../Application/ApplicationPage";
-import DataContext from "../../DataContext";
+import { useState } from "react";
+import "./Selections.css";
+import Card from "../../components/cards/Card";
 
 export default function Selections() {
   const [selectedLevel, setSelectedLevel] = useState(null);
@@ -89,22 +86,26 @@ export default function Selections() {
             </button>
           </div>
         </div>
-        <Link
-          to={`/app?hsk_level=${selectedLevel}&hsk_section=${selectedSection}`}
-          className="btn"
+        <button
+          onClick={fetchData}
+          className="start-btn"
+          disabled={!selectedLevel || !selectedSection}
         >
-          <button
-            onClick={fetchData}
-            className={classNames(style.startBtn)}
-            disabled={!selectedLevel || !selectedSection}
-          >
-            Start!
-          </button>
-        </Link>
+          Start!
+        </button>
+        {data && (
+          <div className="fetched-data">
+            <h2>Fetched Data:</h2>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+            {/* Display the fetched data here as needed */}
+          </div>
+        )}
       </div>
     </div>
   );
 }
+
+export default Selections;
 
 /*
 function App() {
