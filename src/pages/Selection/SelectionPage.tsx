@@ -1,10 +1,14 @@
 // @ts-nocheck
 
 import { useState } from "react";
-import "./Selections.css";
+// import "./Selections.css";
+import style from "./SelectionPage.module.css";
 import Card from "../../components/cards/Card";
+import classNames from "classnames";
+import { Link } from "react-router-dom";
+import Application from "../Application/ApplicationPage";
 
-function Selections() {
+export default function Selections() {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedSection, setSelectedSection] = useState(null);
   const [data, setData] = useState({});
@@ -48,13 +52,19 @@ function Selections() {
     }
   };
 
+  const isColored = false;
+
   return (
-    <div className="App">
+    <div className={classNames(style.app)}>
       <h1>Hanzi</h1>
-      <div className="content-container">
+      <div className={classNames(style.contentContainer)}>
         <div>
           <h3>Select Level</h3>
-          <div className="dropdown-content">
+          <div
+            className={classNames(style.dropdownContent, {
+              [style.color]: isColored,
+            })}
+          >
             <button
               className="btn"
               style={getLevelStyle(1)}
@@ -75,7 +85,7 @@ function Selections() {
         </div>
         <div>
           <h3>Select Section</h3>
-          <div className="dropdown-content">
+          <div className={classNames(style.dropdownContent)}>
             <button
               className="btn"
               style={getSectionStyle("1")}
@@ -94,26 +104,38 @@ function Selections() {
             </button>
           </div>
         </div>
-        <button
-          onClick={fetchData}
-          className="start-btn"
-          disabled={!selectedLevel || !selectedSection}
-        >
-          Start!
-        </button>
-        {data && (
-          <div className="fetched-data">
-            <h2>Fetched Data:</h2>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-            {/* Display the fetched data here as needed */}
-          </div>
-        )}
+        <Link to="/app" className="btn">
+          <button
+            onClick={fetchData}
+            className={classNames(style.startBtn)}
+            disabled={!selectedLevel || !selectedSection}
+          >
+            Start!
+          </button>
+        </Link>
+        <Application
+          renderFetchedData={() =>
+            data ? <YourDataComponent data={data} /> : null
+          }
+        />
       </div>
     </div>
   );
 }
 
-export default Selections;
+const YourDataComponent = ({ data }) => {
+  return (
+    <div>
+      {data && (
+        <div className="fetched-data">
+          <h2>Fetched Data:</h2>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+          {/* Display the fetched data here as needed */}
+        </div>
+      )}
+    </div>
+  );
+};
 
 /*
 function App() {
