@@ -1,17 +1,16 @@
 // @ts-nocheck
 
-import { useState } from "react";
-// import "./Selections.css";
-import style from "./SelectionPage.module.css";
-import Card from "../../components/cards/Card";
-import classNames from "classnames";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
+import style from "./SelectionPage.module.css";
 import Application from "../Application/ApplicationPage";
+import DataContext from "../../DataContext";
 
 export default function Selections() {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedSection, setSelectedSection] = useState(null);
-  const [data, setData] = useState({});
+  const { updateData } = useContext(DataContext);
 
   const handleLevelClick = (level) => {
     setSelectedLevel(level);
@@ -37,7 +36,9 @@ export default function Selections() {
     try {
       console.log("Fetching data...");
       const response = await fetch(
-        `http://localhost:3000/hanzi/${parseInt(selectedLevel)}`
+        `http://localhost:3000/hanzi?hsk_level=${encodeURIComponent(
+          selectedLevel
+        )}&hsk_section=${encodeURIComponent(selectedSection)}`
       );
 
       if (!response.ok) {
@@ -46,7 +47,7 @@ export default function Selections() {
 
       const result = await response.json();
       console.log("Data fetched:", result);
-      setData(result);
+      updateData(result);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -73,14 +74,6 @@ export default function Selections() {
             >
               HSK 1
             </button>
-            <button
-              className="btn"
-              style={getLevelStyle(2)}
-              onClick={() => handleLevelClick(2)}
-              disabled={selectedLevel === 2}
-            >
-              HSK 2
-            </button>
           </div>
         </div>
         <div>
@@ -94,17 +87,12 @@ export default function Selections() {
             >
               Section 1
             </button>
-            <button
-              className="btn"
-              style={getSectionStyle("2")}
-              onClick={() => handleSectionClick("2")}
-              disabled={selectedSection === "2"}
-            >
-              Section 2
-            </button>
           </div>
         </div>
-        <Link to="/app" className="btn">
+        <Link
+          to={`/app?hsk_level=${selectedLevel}&hsk_section=${selectedSection}`}
+          className="btn"
+        >
           <button
             onClick={fetchData}
             className={classNames(style.startBtn)}
@@ -113,29 +101,10 @@ export default function Selections() {
             Start!
           </button>
         </Link>
-        <Application
-          renderFetchedData={() =>
-            data ? <YourDataComponent data={data} /> : null
-          }
-        />
       </div>
     </div>
   );
 }
-
-const YourDataComponent = ({ data }) => {
-  return (
-    <div>
-      {data && (
-        <div className="fetched-data">
-          <h2>Fetched Data:</h2>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-          {/* Display the fetched data here as needed */}
-        </div>
-      )}
-    </div>
-  );
-};
 
 /*
 function App() {
