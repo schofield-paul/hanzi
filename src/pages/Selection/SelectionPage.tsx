@@ -1,13 +1,16 @@
 // @ts-nocheck
 
 import { useState } from "react";
-import "./Selections.css";
-import Card from "../../components/cards/Card";
+import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
+import style from "./SelectionPage.module.css";
+import Application from "../Application/ApplicationPage";
 
 export default function Selections() {
   const [selectedLevel, setSelectedLevel] = useState(null);
   const [selectedSection, setSelectedSection] = useState(null);
-  const { updateData } = useContext(DataContext);
+  const [data, setData] = useState(null);
+  const navigate = useNavigate();
 
   const handleLevelClick = (level) => {
     setSelectedLevel(level);
@@ -44,7 +47,8 @@ export default function Selections() {
 
       const result = await response.json();
       console.log("Data fetched:", result);
-      updateData(result);
+      setData(result);
+      navigate("/app", { state: { data: result } });
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -97,49 +101,9 @@ export default function Selections() {
           <div className="fetched-data">
             <h2>Fetched Data:</h2>
             <pre>{JSON.stringify(data, null, 2)}</pre>
-            {/* Display the fetched data here as needed */}
           </div>
         )}
       </div>
     </div>
   );
 }
-
-export default Selections;
-
-/*
-function App() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [dataToggle, setDataToggle] = useState(1);
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const handleItemClick = (value) => {
-    setDataToggle(value);
-    setIsDropdownOpen(false);
-  };
-
-  return (
-    <div className="App">
-      <h1>Hanzi</h1>
-
-      <div className="content-container">
-        <button className="btn" onClick={toggleDropdown}>
-          Select words
-        </button>
-        {isDropdownOpen && (
-          <div className="dropdown-content">
-            <div onClick={() => handleItemClick(1)}>Word list 1</div>
-            <div onClick={() => handleItemClick(2)}>Word list 2</div>
-            <div onClick={() => handleItemClick(3)}>Word list 3</div>
-          </div>
-        )}
-
-        <Card setToggle={dataToggle} />
-      </div>
-    </div>
-  );
-}
-*/
