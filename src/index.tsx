@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SelectionPage from "./pages/Selection/SelectionPage";
 import Application from "./pages/Application/ApplicationPage";
+import { DataProvider } from "./DataContext";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-root.render(<RouterProvider router={router} />);
+root.render(
+  <RouterProvider router={router}>
+    <DataProvider></DataProvider>
+  </RouterProvider>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -20,18 +20,16 @@ app.get("/hanzi", async (req, res) => {
 });
 
 // Get a hanzi
-app.get("/hanzi/:id", async (req, res) => {
-  const { id } = req.params;
-  console.log(id);
-  const hanziId = parseInt(id);
+app.get("/hanzi", async (req, res) => {
+  const { hsk_level, hsk_section } = req.query;
+
   try {
-    const hanzi = await pool.query("SELECT * FROM hanzi WHERE id = $1", [
-      hanziId,
-    ]);
+    const hanzi = await pool.query(
+      "SELECT * FROM hanzi WHERE hsk_level = $1 AND hsk_section = $2",
+      [hsk_level, hsk_section]
+    );
 
-    console.log(hanzi.rows[0]);
-
-    res.json(hanzi.rows[0]);
+    res.json(hanzi.rows);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Error fetching hanzi");
