@@ -4,31 +4,23 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import style from "./SelectionPage.module.css";
-import Application from "../Application/ApplicationPage";
 
 export default function Selections() {
-  const [selectedLevel, setSelectedLevel] = useState(null);
-  const [selectedSection, setSelectedSection] = useState(null);
-  const [data, setData] = useState(null);
+  const [selectedItems, setSelectedItems] = useState({
+    selectedLevel: null,
+    selectedSection: null,
+    data: null,
+  });
+  const { selectedLevel, selectedSection, data } = selectedItems;
   const navigate = useNavigate();
 
-  const handleLevelClick = (level) => {
-    setSelectedLevel(level);
+  const handleItemClick = (type, item) => {
+    setSelectedItems({ ...selectedItems, [type]: item });
   };
 
-  const handleSectionClick = (section) => {
-    setSelectedSection(section);
-  };
-
-  const getLevelStyle = (level) => {
+  const getItemStyle = (type, item) => {
     return {
-      backgroundColor: selectedLevel === level ? "yellow" : "lightgray",
-    };
-  };
-
-  const getSectionStyle = (section) => {
-    return {
-      backgroundColor: selectedSection === section ? "yellow" : "lightgray",
+      backgroundColor: selectedItems[type] === item ? "yellow" : "lightgray",
     };
   };
 
@@ -47,7 +39,7 @@ export default function Selections() {
 
       const result = await response.json();
       console.log("Data fetched:", result);
-      setData(result);
+      setSelectedItems({ ...selectedItems, data: result });
       navigate("/app", { state: { data: result } });
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -62,32 +54,34 @@ export default function Selections() {
       <div className={classNames(style.contentContainer)}>
         <div>
           <h3>Select Level</h3>
-          <div
-            className={classNames(style.dropdownContent, {
-              [style.color]: isColored,
-            })}
-          >
-            <button
-              className="btn"
-              style={getLevelStyle(1)}
-              onClick={() => handleLevelClick(1)}
-              disabled={selectedLevel === 1}
-            >
-              HSK 1
-            </button>
+          <div className={classNames(style.dropdownContent)}>
+            {[1, 2, 3, 4].map((level) => (
+              <button
+                key={`level-${level}`}
+                className="btn"
+                style={getItemStyle("selectedLevel", level)}
+                onClick={() => handleItemClick("selectedLevel", level)}
+                disabled={selectedLevel === level}
+              >
+                HSK {level}
+              </button>
+            ))}
           </div>
         </div>
         <div>
           <h3>Select Section</h3>
           <div className={classNames(style.dropdownContent)}>
-            <button
-              className="btn"
-              style={getSectionStyle("1")}
-              onClick={() => handleSectionClick("1")}
-              disabled={selectedSection === "1"}
-            >
-              Section 1
-            </button>
+            {["1", "2", "3", "4"].map((section) => (
+              <button
+                key={`section-${section}`}
+                className="btn"
+                style={getItemStyle("selectedSection", section)}
+                onClick={() => handleItemClick("selectedSection", section)}
+                disabled={selectedSection === section}
+              >
+                Section {section}
+              </button>
+            ))}
           </div>
         </div>
         <button
@@ -97,12 +91,6 @@ export default function Selections() {
         >
           Start!
         </button>
-        {data && (
-          <div className="fetched-data">
-            <h2>Fetched Data:</h2>
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-          </div>
-        )}
       </div>
     </div>
   );
