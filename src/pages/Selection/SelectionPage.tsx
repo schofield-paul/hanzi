@@ -26,7 +26,6 @@ export default function Selections() {
 
   const fetchData = async () => {
     try {
-      console.log("Fetching data...");
       const response = await fetch(
         `http://localhost:3000/hanzi?hsk_level=${encodeURIComponent(
           selectedLevel
@@ -38,7 +37,6 @@ export default function Selections() {
       }
 
       const result = await response.json();
-      console.log("Data fetched:", result);
       setSelectedItems({ ...selectedItems, data: result });
       navigate("/app", { state: { data: result } });
     } catch (error) {
