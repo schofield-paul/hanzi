@@ -8,17 +8,6 @@ app.use(cors());
 
 // Routes
 
-// Get all hanzi
-app.get("/hanzi", async (req, res) => {
-  try {
-    const allHanzi = await pool.query("SELECT * FROM hanzi");
-
-    res.json(allHanzi.rows);
-  } catch (err) {
-    console.error(err.message);
-  }
-});
-
 // Get a hanzi
 app.get("/hanzi", async (req, res) => {
   const { hsk_level, hsk_section } = req.query;
