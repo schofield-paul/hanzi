@@ -10,13 +10,14 @@ export default function Application() {
   const { data } = location.state || {};
 
   return (
-    <div>
+    <div className={classNames(style.contentContainer)}>
       <h1 className={classNames(style.h1)}>App</h1>
       {data ? (
         <>
           <Card data={data} />
-          <h3>Raw Data</h3>
+          <hr />
 
+          <h3>Raw Data</h3>
           <pre>{JSON.stringify(data, null, 2)}</pre>
         </>
       ) : (
