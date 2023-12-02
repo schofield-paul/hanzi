@@ -32,11 +32,15 @@ export default function Selections() {
         )}&hsk_section=${encodeURIComponent(selectedSection)}`
       );
 
+      // Mock API call
+      // const response = await fetch("http://localhost:3001/api/hanzi");
+
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
 
       const result = await response.json();
+      console.log("result", result);
       setSelectedItems({ ...selectedItems, data: result });
       navigate("/app", { state: { data: result } });
     } catch (error) {

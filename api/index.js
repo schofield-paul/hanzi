@@ -17,6 +17,7 @@ app.get("/hanzi", async (req, res) => {
       "SELECT * FROM hanzi WHERE hsk_level = $1 AND hsk_section = $2",
       [hsk_level, hsk_section]
     );
+    console.log(hanzi.rows);
 
     res.json(hanzi.rows);
   } catch (err) {

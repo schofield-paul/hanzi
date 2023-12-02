@@ -1,0 +1,26 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #0f0f0f;
+  color: #ffffff;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero img {
+  max-width: 100%;
+}
+
+.title {
+  font-size: 70px;
+  line-height: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 24px;
+  line-height: 30px;
+}
