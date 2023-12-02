@@ -55,14 +55,14 @@ const Card = ({ data }) => {
 
   return (
     <>
-      <div className="pair-1">
-        <p>{data[currentIndex].english}</p>
-        <button onClick={showNextPair}>Next Pair</button>
+      <p>{data[currentIndex].english}</p>
+      <div className="pair-container">
+        <div className="pair-1">
+          <div ref={characterTargetRef}></div>
+        </div>
       </div>
-      <div className="pair-2">
-        <div ref={characterTargetRef}></div>
-        <button onClick={() => animateCharacter(0)}>Animate</button>
-      </div>
+      <button onClick={() => animateCharacter(0)}>Animate</button>
+      <button onClick={showNextPair}>Next Pair</button>
     </>
   );
 };

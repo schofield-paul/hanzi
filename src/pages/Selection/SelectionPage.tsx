@@ -49,7 +49,7 @@ export default function Selections() {
   return (
     <div className={classNames(style.contentContainer)}>
       <div>
-        <h3>Select Level</h3>
+        <h3 className={classNames(style.selectPrompts)}>Select Level</h3>
         <div className={classNames(style.dropdownContent)}>
           {[1, 2, 3, 4].map((level) => (
             <button
@@ -65,7 +65,7 @@ export default function Selections() {
         </div>
       </div>
       <div>
-        <h3>Select Section</h3>
+        <h3 className={classNames(style.selectPrompts)}>Select Section</h3>
         <div className={classNames(style.dropdownContent)}>
           {["1", "2", "3", "4"].map((section) => (
             <button
@@ -82,10 +82,10 @@ export default function Selections() {
       </div>
       <button
         onClick={fetchData}
-        className="startBtn"
+        className={classNames(style.startButton)}
         disabled={!selectedLevel || !selectedSection}
       >
-        Start!
+        Start
       </button>
     </div>
   );
