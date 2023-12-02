@@ -20,7 +20,7 @@ export default function Selections() {
 
   const getItemStyle = (type, item) => {
     return {
-      backgroundColor: selectedItems[type] === item ? "yellow" : "lightgray",
+      backgroundColor: selectedItems[type] === item ? "grey" : "lightgray",
     };
   };
 
@@ -47,49 +47,46 @@ export default function Selections() {
   const isColored = false;
 
   return (
-    <div className={classNames(style.app)}>
-      <h1>Hanzi</h1>
-      <div className={classNames(style.contentContainer)}>
-        <div>
-          <h3>Select Level</h3>
-          <div className={classNames(style.dropdownContent)}>
-            {[1, 2, 3, 4].map((level) => (
-              <button
-                key={`level-${level}`}
-                className="btn"
-                style={getItemStyle("selectedLevel", level)}
-                onClick={() => handleItemClick("selectedLevel", level)}
-                disabled={selectedLevel === level}
-              >
-                HSK {level}
-              </button>
-            ))}
-          </div>
+    <div className={classNames(style.contentContainer)}>
+      <div>
+        <h3>Select Level</h3>
+        <div className={classNames(style.dropdownContent)}>
+          {[1, 2, 3, 4].map((level) => (
+            <button
+              key={`level-${level}`}
+              className="btn"
+              style={getItemStyle("selectedLevel", level)}
+              onClick={() => handleItemClick("selectedLevel", level)}
+              disabled={selectedLevel === level}
+            >
+              HSK {level}
+            </button>
+          ))}
         </div>
-        <div>
-          <h3>Select Section</h3>
-          <div className={classNames(style.dropdownContent)}>
-            {["1", "2", "3", "4"].map((section) => (
-              <button
-                key={`section-${section}`}
-                className="btn"
-                style={getItemStyle("selectedSection", section)}
-                onClick={() => handleItemClick("selectedSection", section)}
-                disabled={selectedSection === section}
-              >
-                Section {section}
-              </button>
-            ))}
-          </div>
-        </div>
-        <button
-          onClick={fetchData}
-          className="start-btn"
-          disabled={!selectedLevel || !selectedSection}
-        >
-          Start!
-        </button>
       </div>
+      <div>
+        <h3>Select Section</h3>
+        <div className={classNames(style.dropdownContent)}>
+          {["1", "2", "3", "4"].map((section) => (
+            <button
+              key={`section-${section}`}
+              className="btn"
+              style={getItemStyle("selectedSection", section)}
+              onClick={() => handleItemClick("selectedSection", section)}
+              disabled={selectedSection === section}
+            >
+              Section {section}
+            </button>
+          ))}
+        </div>
+      </div>
+      <button
+        onClick={fetchData}
+        className="startBtn"
+        disabled={!selectedLevel || !selectedSection}
+      >
+        Start!
+      </button>
     </div>
   );
 }
