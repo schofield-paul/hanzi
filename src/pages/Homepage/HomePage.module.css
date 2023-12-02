@@ -1,0 +1,14 @@
+.h1 {
+  margin: 0;
+  padding-top: 5rem;
+  color: #61dafb;
+  font-size: 3rem;
+}
+
+.app {
+  text-align: center;
+  background-color: #394866;
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 20px;
+}

@@ -1,26 +1,8 @@
-.app {
-  text-align: center;
-  background-color: #282c34;
-  color: white;
-  min-height: 100vh;
-}
-
-h1 {
-  margin: 0;
-  padding-top: 2.5rem;
-  color: #61dafb;
-  font-size: 3rem;
-}
-
 .contentContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh;
-  align-items: center;
-  font-size: calc(10px + 2vmin);
-  background-color: #95acda;
-  padding-top: 4rem;
+  margin-top: 30px;
 }
 
 .color {
@@ -31,13 +13,15 @@ h1 {
   background-color: #61dafb;
   border: none;
   color: #282c34;
-  padding: 15px 32px;
+  padding: 12px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 8px 4px;
   cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 .startBtn {

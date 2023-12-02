@@ -7,11 +7,12 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Selections from "./pages/Selection/SelectionPage";
 import Application from "./pages/Application/ApplicationPage";
+import Homepage from "./pages/Homepage/Homepage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Selections />,
+    element: <Homepage />,
     errorElement: <div>404 Not Found</div>,
   },
   {
