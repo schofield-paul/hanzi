@@ -1,19 +1,25 @@
-.pair-1,
-.pair-2 {
+.pair-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #69a4b4;
+  background-color: #282c34;
   margin: 1rem;
   padding: 1rem;
   width: 300px;
-  height: 150px;
-  border: 1px solid #000;
+  border: 1px solid #ffffff;
+}
+
+.pair-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .pair-1 button {
-  margin-top: auto;
+  margin-top: 0.5rem;
 }
 
 .pair-2 button {
