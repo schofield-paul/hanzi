@@ -26,6 +26,7 @@ const Card = ({ data }) => {
           padding: 5,
           showCharacter: false,
           showOutline: false,
+          strokeAnimationSpeed: 2,
         });
       });
       setWriters(newWriters);
