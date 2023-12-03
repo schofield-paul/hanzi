@@ -57,6 +57,8 @@ const Card = ({ data }) => {
   return (
     <>
       <p>{data[currentIndex].english}</p>
+      <p>{data[currentIndex].pinyin}</p>
+
       <div className="pair-container">
         <div className="pair-1">
           <div ref={characterTargetRef}></div>
