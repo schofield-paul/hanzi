@@ -1,49 +1,57 @@
 const express = require("express");
 const app = express();
-const pool = require("./db");
 const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
 
+const Hanzi = require("./hanzi.js");
+// require connecttoDB
+const { connectToDB } = require("./database.js");
+console.log("Database:", connectToDB);
+
 // Routes
 
-// Get a hanzi
+// Get all hanzi
 app.get("/hanzi", async (req, res) => {
-  const { hsk_level, hsk_section } = req.query;
-
   try {
-    const hanzi = await pool.query(
-      "SELECT * FROM hanzi WHERE hsk_level = $1 AND hsk_section = $2",
-      [hsk_level, hsk_section]
-    );
-    console.log(hanzi.rows);
+    await connectToDB();
 
-    res.json(hanzi.rows);
+    const allHanzi = await Hanzi.find({});
+
+    res.status(200).json(allHanzi);
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send("Error fetching hanzi");
+    console.error("Error:", err.message);
+    res.status(500).send("Server Error");
   }
 });
 
-// Post a hanzi -- only for testing and seeding
+// Post a hanzi
 app.post("/hanzi", async (req, res) => {
   try {
-    const { character, pinyin, english, hsk_level, hsk_section } = req.body;
+    await connectToDB();
 
-    const newHanzi = await pool.query(
-      "INSERT INTO hanzi (character, pinyin, english, hsk_level, hsk_section) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-      [character, pinyin, english, hsk_level, hsk_section]
-    );
+    const { character, pinyin, english, hsk_leve, hsk_section } = req.body;
 
-    res.json(newHanzi.rows[0]); // Send back the inserted row as a response
+    // Check if the Hanzi already exists
+    const hanziExists = await Hanzi.findOne({ character });
+
+    // If the Hanzi doesn't exist, create a new entry
+    if (!hanziExists) {
+      const newHanzi = await Hanzi.create({
+        character,
+        pinyin,
+        english,
+        hsk_level,
+        hsk_section,
+      });
+      res.status(201).json(newHanzi); // Respond with the newly created Hanzi entry
+    } else {
+      res.status(400).json({ message: "Hanzi already exists" }); // Respond with a message indicating the Hanzi already exists
+    }
   } catch (err) {
     console.error("Error:", err.message);
-    if (err.code === "42P01") {
-      res.status(404).send("Database or table does not exist.");
-    } else {
-      res.status(500).send("Server Error");
-    }
+    res.status(500).send("Server Error");
   }
 });
 
