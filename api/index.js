@@ -3,7 +3,11 @@ const app = express();
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: "https://hanzi-app.com",
+};
+app.use(cors(corsOptions));
 
 const Hanzi = require("./hanzi.js");
 // require connecttoDB
