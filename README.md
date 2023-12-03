@@ -1,5 +1,7 @@
 Hanzi makes learning written Mandarin easier.
 
+Project uses React, Express and MongoDB.
+
 ## Available Scripts
 
 In the project directory, you can run:
