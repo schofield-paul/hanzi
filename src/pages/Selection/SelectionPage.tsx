@@ -27,11 +27,10 @@ export default function Selections() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/hanzi?hsk_level=${encodeURIComponent(
+        `https://hanzi-app.com/hanzi?hsk_level=${encodeURIComponent(
           selectedLevel
         )}&hsk_section=${encodeURIComponent(selectedSection)}`
       );
-
       // Mock API call
       // const response = await fetch("http://localhost:3001/api/hanzi");
 
