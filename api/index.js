@@ -5,7 +5,7 @@ const cors = require("cors");
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://www.hanzi-app.com/",
+  origin: "*",
 };
 app.use(cors(corsOptions));
 
