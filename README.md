@@ -1,4 +1,4 @@
-Hanzi makes learning written Mandarin easier.
+[Hanzi](https://www.hanzi-app.com/) makes learning written Mandarin easier.
 
 Project uses React, Express and MongoDB.
 
