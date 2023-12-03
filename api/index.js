@@ -5,7 +5,9 @@ const cors = require("cors");
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://www.hanzi-app.com/",
+  origin: ["https://www.hanzi-app.com", "https://www.hanzi-app.com/"],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
 };
 app.use(cors(corsOptions));
 
