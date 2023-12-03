@@ -35,7 +35,7 @@ export default function Selections() {
       }
 
       const result = await response.json();
-      console.log("result", result);
+
       setSelectedItems({ ...selectedItems, data: result });
       navigate("/app", { state: { data: result } });
     } catch (error) {
