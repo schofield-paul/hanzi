@@ -10,6 +10,8 @@ const Hanzi = require("./hanzi.js");
 const { connectToDB } = require("./database.js");
 console.log("Database:", connectToDB);
 
+const port = process.env.PORT || 3000;
+
 // Routes
 
 // Get all hanzi
@@ -55,6 +57,6 @@ app.post("/hanzi", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(port, () => {
+  console.log(`Server is running on ${port}`);
 });
