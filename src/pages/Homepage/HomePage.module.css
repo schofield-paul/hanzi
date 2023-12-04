@@ -10,7 +10,7 @@ h1 {
 .app {
   text-align: left;
   background-color: #0f0f0f;
-  color: rgb(46, 46, 46);
+  color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
