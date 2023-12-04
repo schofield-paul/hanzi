@@ -12,6 +12,48 @@ h1 {
   background-color: #0f0f0f;
   color: white;
   min-height: 100vh;
-  padding-bottom: 20px;
-  padding-left: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  font-family: "Roboto", sans-serif;
+  padding: 20px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #0f0f0f;
+  color: #72878c;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 70px;
+  line-height: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .title {
+    font-size: 50px;
+    line-height: 60px;
+  }
+  body,
+  html {
+    overflow-x: hidden;
+  }
+  .app {
+    padding: 50px;
+    overflow-x: hidden;
+  }
 }
