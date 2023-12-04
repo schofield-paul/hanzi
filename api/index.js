@@ -12,13 +12,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const Hanzi = require("./hanzi.js");
-// require connecttoDB
 const { connectToDB } = require("./database.js");
 console.log("Database:", connectToDB);
 
 const port = process.env.PORT || 3000;
-
-// Routes
 
 // Get all hanzi
 app.get("/hanzi", async (req, res) => {
@@ -53,9 +50,9 @@ app.post("/hanzi", async (req, res) => {
         hsk_level,
         hsk_section,
       });
-      res.status(201).json(newHanzi); // Respond with the newly created Hanzi entry
+      res.status(201).json(newHanzi);
     } else {
-      res.status(400).json({ message: "Hanzi already exists" }); // Respond with a message indicating the Hanzi already exists
+      res.status(400).json({ message: "Hanzi already exists" });
     }
   } catch (err) {
     console.error("Error:", err.message);
