@@ -66,7 +66,6 @@ const Card = ({ data }) => {
       </div>
       <button onClick={() => animateCharacter(0)}>Animate</button>
       <button onClick={showNextPair}>Next Pair</button>
-      <button onClick={showNextPair}>Context..</button>
     </>
   );
 };
