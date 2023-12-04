@@ -11,6 +11,7 @@ export default function Selections() {
     selectedSection: null,
     data: null,
   });
+
   const { selectedLevel, selectedSection, data } = selectedItems;
   const navigate = useNavigate();
 
@@ -26,9 +27,9 @@ export default function Selections() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://hanzi-app.onrender.com/hanzi");
+      //const response = await fetch("https://hanzi-app.onrender.com/hanzi");
       // Mock API call
-      //const response = await fetch("http://localhost:3001/api/hanzi");
+      const response = await fetch("http://localhost:3001/api/hanzi");
 
       if (!response.ok) {
         throw new Error("Failed to fetch data");
@@ -49,12 +50,12 @@ export default function Selections() {
   return (
     <div className={classNames(style.contentContainer)}>
       <div>
-        <h3 className={classNames(style.selectPrompts)}>Select Level</h3>
+        <h3 className={classNames(style.selectPrompts)}>Select HSK Level</h3>
         <div className={classNames(style.dropdownContent)}>
-          {[1, 2, 3, 4].map((level) => (
+          {[1, 2, 3].map((level) => (
             <button
               key={`level-${level}`}
-              className="btn"
+              className={classNames(style.btn)}
               style={getItemStyle("selectedLevel", level)}
               onClick={() => handleItemClick("selectedLevel", level)}
               disabled={selectedLevel === level}
@@ -67,10 +68,10 @@ export default function Selections() {
       <div>
         <h3 className={classNames(style.selectPrompts)}>Select Section</h3>
         <div className={classNames(style.dropdownContent)}>
-          {["1", "2", "3", "4"].map((section) => (
+          {["1", "2", "3"].map((section) => (
             <button
               key={`section-${section}`}
-              className="btn"
+              className={classNames(style.btn)}
               style={getItemStyle("selectedSection", section)}
               onClick={() => handleItemClick("selectedSection", section)}
               disabled={selectedSection === section}
@@ -83,7 +84,7 @@ export default function Selections() {
       <button
         onClick={fetchData}
         className={classNames(style.startButton)}
-        disabled={!selectedLevel || !selectedSection}
+        disabled={!selectedLevel}
       >
         Start
       </button>
