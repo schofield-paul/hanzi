@@ -11,6 +11,7 @@ export default function Selections() {
     selectedSection: null,
     data: null,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const { selectedLevel, selectedSection, data } = selectedItems;
   const navigate = useNavigate();
@@ -27,9 +28,10 @@ export default function Selections() {
 
   const fetchData = async () => {
     try {
-      //const response = await fetch("https://hanzi-app.onrender.com/hanzi");
+      setIsLoading(true);
+      const response = await fetch("https://hanzi-app.onrender.com/hanzi");
       // Mock API call
-      const response = await fetch("http://localhost:3001/api/hanzi");
+      //const response = await fetch("http://localhost:3001/api/hanzi");
 
       if (!response.ok) {
         throw new Error("Failed to fetch data");
@@ -40,6 +42,7 @@ export default function Selections() {
       setSelectedItems({ ...selectedItems, data: result });
       navigate("/app", { state: { data: result } });
       window.scrollTo(0, 0);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -86,7 +89,7 @@ export default function Selections() {
         className={classNames(style.startButton)}
         disabled={!selectedLevel}
       >
-        Start
+        {isLoading ? "Loading..." : "Start"}
       </button>
     </div>
   );
