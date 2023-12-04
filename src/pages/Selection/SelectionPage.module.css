@@ -9,20 +9,6 @@
   background-color: #d35c00;
 }
 
-.startButton {
-  background-color: #2d6b7c;
-  border: none;
-  color: #f8fcff;
-  padding: 12px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  margin-top: 4rem;
-}
-
 .dropdownContent {
   display: flex;
   min-width: 15rem;
@@ -34,4 +20,38 @@
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+}
+
+.btn {
+  width: 100px;
+  height: 50px;
+  color: rgb(44, 75, 122);
+  background-color: #fff;
+  border: 2px solid rgb(44, 75, 122);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  padding: 5px 5px 5px 5px;
+}
+
+.btn:hover {
+  background-color: rgb(44, 75, 122);
+  color: #fff;
+}
+
+.startButton {
+  width: 105px;
+  height: 50px;
+  color: rgb(44, 75, 122);
+  background-color: #fff;
+  border: 2px solid rgb(44, 75, 122);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  margin-top: 30px;
+  padding: 5px 5px 5px 5px;
 }
