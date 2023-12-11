@@ -1,6 +1,4 @@
-// @ts-nocheck
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import style from "./SelectionPage.module.css";
@@ -16,11 +14,17 @@ export default function Selections() {
   const { selectedLevel, selectedSection, data } = selectedItems;
   const navigate = useNavigate();
 
-  const handleItemClick = (type, item) => {
+  const handleItemClick = (
+    type: keyof typeof selectedItems,
+    item: string | number
+  ) => {
     setSelectedItems({ ...selectedItems, [type]: item });
   };
 
-  const getItemStyle = (type, item) => {
+  const getItemStyle = (
+    type: keyof typeof selectedItems,
+    item: string | number
+  ) => {
     return {
       backgroundColor: selectedItems[type] === item ? "grey" : "lightgray",
     };
@@ -29,9 +33,11 @@ export default function Selections() {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch("https://hanzi-app.onrender.com/hanzi");
-      // Mock API call
-      //const response = await fetch("http://localhost:3001/api/hanzi");
+      const response = await fetch(
+        `https://hanzi-app.onrender.com/hanzi?hsk_level=${encodeURIComponent(
+          selectedLevel || ""
+        )}&hsk_section=${encodeURIComponent(selectedSection || "")}`
+      );
 
       if (!response.ok) {
         throw new Error("Failed to fetch data");
