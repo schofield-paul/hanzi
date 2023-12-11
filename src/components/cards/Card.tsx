@@ -1,13 +1,16 @@
-//@ts-nocheck
-
 import { useState, useEffect, useRef } from "react";
 import HanziWriter from "hanzi-writer";
 import "./card.css";
+import { Data } from "./types";
 
-const Card = ({ data }) => {
+interface CardProps {
+  data: Data[];
+}
+
+const Card: React.FC<CardProps> = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [writers, setWriters] = useState([]);
-  const characterTargetRef = useRef(null);
+  const [writers, setWriters] = useState<HanziWriter[]>([]);
+  const characterTargetRef = useRef<HTMLDivElement | null>(null);
 
   const showNextPair = () => {
     if (characterTargetRef.current) {
@@ -18,9 +21,9 @@ const Card = ({ data }) => {
 
   useEffect(() => {
     if (characterTargetRef.current) {
-      const charactersArray = Array.from(data[currentIndex].character); // Split the string into an array of characters
+      const charactersArray = Array.from(data[currentIndex].character);
       const newWriters = charactersArray.map((character, index) => {
-        return HanziWriter.create(characterTargetRef.current, character, {
+        return HanziWriter.create(characterTargetRef.current!, character, {
           width: 100,
           height: 100,
           padding: 5,
@@ -33,7 +36,7 @@ const Card = ({ data }) => {
     }
   }, [currentIndex, data]);
 
-  const animateCharacter = (index) => {
+  const animateCharacter = (index: number) => {
     const delayBetweenAnimations = 1000;
     const currentWriter = writers[index];
 
