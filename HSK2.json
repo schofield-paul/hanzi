@@ -1,0 +1,1052 @@
+[
+  {
+    "character": "百",
+    "pinyin": "bǎi",
+    "english": "hundred",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "千",
+    "pinyin": "qiān",
+    "english": "thousand",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "第一",
+    "pinyin": "dìyī",
+    "english": "first",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "个",
+    "pinyin": "gè",
+    "english": "one, a, an",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "岁",
+    "pinyin": "suì",
+    "english": "year",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "本",
+    "pinyin": "běn",
+    "english": "volume",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "些",
+    "pinyin": "xiē",
+    "english": "some",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "块",
+    "pinyin": "kuài",
+    "english": "piece",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "次",
+    "pinyin": "cì",
+    "english": "number",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "公斤",
+    "pinyin": "gōngjīn",
+    "english": "kilogram",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "元",
+    "pinyin": "yuán",
+    "english": "yuan",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "件",
+    "pinyin": "jiàn",
+    "english": "piece",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "张",
+    "pinyin": "zhāng",
+    "english": "sheet",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "不",
+    "pinyin": "bù",
+    "english": "no",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "没",
+    "pinyin": "méi",
+    "english": "no",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "很",
+    "pinyin": "hěn",
+    "english": "quite, very",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "太",
+    "pinyin": "tài",
+    "english": "too",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "都",
+    "pinyin": "dōu",
+    "english": "all",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "别",
+    "pinyin": "bié",
+    "english": "other",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "非常",
+    "pinyin": "fēicháng",
+    "english": "very",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "也",
+    "pinyin": "yě",
+    "english": "likewise",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "还",
+    "pinyin": "hái",
+    "english": "repay",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "最",
+    "pinyin": "zuì",
+    "english": "most",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "真",
+    "pinyin": "zhēn",
+    "english": "real",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "正在",
+    "pinyin": "zhèngzài",
+    "english": "be being",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "已经",
+    "pinyin": "yǐjīng",
+    "english": "already",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "一起",
+    "pinyin": "yìqǐ",
+    "english": "together",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "再",
+    "pinyin": "zài",
+    "english": "again",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "就",
+    "pinyin": "jiù",
+    "english": "at once",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "和",
+    "pinyin": "hé",
+    "english": "and",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "因为",
+    "pinyin": "yīnwèi",
+    "english": "because",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "所以",
+    "pinyin": "suǒyǐ",
+    "english": "so",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "但是",
+    "pinyin": "dànshì",
+    "english": "but",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "在",
+    "pinyin": "zài",
+    "english": "in, at",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "从",
+    "pinyin": "cóng",
+    "english": "from",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "对",
+    "pinyin": "duì",
+    "english": "right",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "此",
+    "pinyin": "cǐ",
+    "english": "this",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "向",
+    "pinyin": "xiàng",
+    "english": "towards",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "离",
+    "pinyin": "lí",
+    "english": "leave",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "喂",
+    "pinyin": "wèi",
+    "english": "hello",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "家",
+    "pinyin": "jiā",
+    "english": "home",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "学校",
+    "pinyin": "xuéxiào",
+    "english": "school",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "饭馆",
+    "pinyin": "fànguǎn",
+    "english": "restaurant",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "商店",
+    "pinyin": "shāngdiàn",
+    "english": "store",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "医院",
+    "pinyin": "yīyuàn",
+    "english": "hospital",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "火车站",
+    "pinyin": "huǒchēzhàn",
+    "english": "train station",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "中国",
+    "pinyin": "zhōngguó",
+    "english": "China",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "机场",
+    "pinyin": "jīchǎng",
+    "english": "airport",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "教室",
+    "pinyin": "jiàoshì",
+    "english": "classroom",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "房间",
+    "pinyin": "fángjiān",
+    "english": "room",
+    "hsk_level": "2",
+    "hsk_section": "1"
+  },
+  {
+    "character": "路",
+    "pinyin": "lù",
+    "english": "road",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "北京",
+    "pinyin": "běijīng",
+    "english": "Beijing",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "上",
+    "pinyin": "shàng",
+    "english": "up",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "下",
+    "pinyin": "xià",
+    "english": "below",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "前面",
+    "pinyin": "qiánmiàn",
+    "english": "front",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "后面",
+    "pinyin": "hòumiàn",
+    "english": "behind",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "左边",
+    "pinyin": "zuǒbiān",
+    "english": "left",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "右边",
+    "pinyin": "yòubiān",
+    "english": "right",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "外",
+    "pinyin": "wài",
+    "english": "out",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "旁边",
+    "pinyin": "pángbiān",
+    "english": "side",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "里面",
+    "pinyin": "lǐmiàn",
+    "english": "inside",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "今天",
+    "pinyin": "jīntiān",
+    "english": "today",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "明天",
+    "pinyin": "míngtiān",
+    "english": "tomorrow",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "昨天",
+    "pinyin": "zuótiān",
+    "english": "yesterday",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "上午",
+    "pinyin": "shàngwǔ",
+    "english": "morning",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "中午",
+    "pinyin": "zhōngwǔ",
+    "english": "noon",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "下午",
+    "pinyin": "xiàwǔ",
+    "english": "afternoon",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "年",
+    "pinyin": "nián",
+    "english": "year",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "月",
+    "pinyin": "yuè",
+    "english": "month",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "日",
+    "pinyin": "rì",
+    "english": "day",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "星期",
+    "pinyin": "xīngqī",
+    "english": "week",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "点",
+    "pinyin": "diǎn",
+    "english": "dot, spot",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "分钟",
+    "pinyin": "fēnzhōng",
+    "english": "minute",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "现在",
+    "pinyin": "xiànzài",
+    "english": "now",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "时候",
+    "pinyin": "shíhóu",
+    "english": "time",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "早上",
+    "pinyin": "zǎoshàng",
+    "english": "morning",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "晚上",
+    "pinyin": "wǎnshàng",
+    "english": "night",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "小时",
+    "pinyin": "xiǎoshí",
+    "english": "hour",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "时间",
+    "pinyin": "shíjiān",
+    "english": "time",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "去年",
+    "pinyin": "qùnián",
+    "english": "last year",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "号",
+    "pinyin": "hào",
+    "english": "number",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "生日",
+    "pinyin": "shēngrì",
+    "english": "birthday",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "爸爸",
+    "pinyin": "bàba",
+    "english": "father",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "妈妈",
+    "pinyin": "māma",
+    "english": "mother",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "儿子",
+    "pinyin": "érzi",
+    "english": "son",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "女儿",
+    "pinyin": "nǚér",
+    "english": "daughter",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "老师",
+    "pinyin": "lǎoshī",
+    "english": "teacher",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "学生",
+    "pinyin": "xuéshēng",
+    "english": "student",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "同学",
+    "pinyin": "tóngxué",
+    "english": "schoolmate",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "朋友",
+    "pinyin": "péngyǒu",
+    "english": "friend",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "医生",
+    "pinyin": "yīshēng",
+    "english": "doctor",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "先生",
+    "pinyin": "xiānshēng",
+    "english": "sir",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "小姐",
+    "pinyin": "xiǎojiě",
+    "english": "Miss",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "哥哥",
+    "pinyin": "gēge",
+    "english": "brother",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "姐姐",
+    "pinyin": "jiějie",
+    "english": "sister",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "弟弟",
+    "pinyin": "dìdi",
+    "english": "younger brother",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "妹妹",
+    "pinyin": "mèimei",
+    "english": "sister",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "丈夫",
+    "pinyin": "zhàngfu",
+    "english": "husband",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "妻子",
+    "pinyin": "qīzi",
+    "english": "wife",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "孩子",
+    "pinyin": "háizi",
+    "english": "child",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "男人",
+    "pinyin": "nánrén",
+    "english": "man",
+    "hsk_level": "2",
+    "hsk_section": "2"
+  },
+  {
+    "character": "女人",
+    "pinyin": "nǚrén",
+    "english": "woman",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "服务员",
+    "pinyin": "fúwùyuán",
+    "english": "waiter",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "衣服",
+    "pinyin": "yīfu",
+    "english": "cloth",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "水",
+    "pinyin": "shuǐ",
+    "english": "water",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "菜",
+    "pinyin": "cài",
+    "english": "vegetable",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "米饭",
+    "pinyin": "mǐfàn",
+    "english": "rice",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "水果",
+    "pinyin": "shuǐguǒ",
+    "english": "fruit",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "苹果",
+    "pinyin": "píngguǒ",
+    "english": "apple",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "茶",
+    "pinyin": "chá",
+    "english": "tea",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "杯子",
+    "pinyin": "bēizi",
+    "english": "cup",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "钱",
+    "pinyin": "qián",
+    "english": "money",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "飞机",
+    "pinyin": "fēijī",
+    "english": "airplane",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "出租车",
+    "pinyin": "chūzūchē",
+    "english": "taxi",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "电视",
+    "pinyin": "diànshì",
+    "english": "television",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "电脑",
+    "pinyin": "diànnǎo",
+    "english": "computer",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "电影",
+    "pinyin": "diànyǐng",
+    "english": "movie",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "天气",
+    "pinyin": "tiānqì",
+    "english": "weather",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "猫",
+    "pinyin": "māo",
+    "english": "cat",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "狗",
+    "pinyin": "gǒu",
+    "english": "dog",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "东西",
+    "pinyin": "dōngxī",
+    "english": "thing",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "鱼",
+    "pinyin": "yú",
+    "english": "fish",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "羊肉",
+    "pinyin": "yángròu",
+    "english": "mutton",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "牛奶",
+    "pinyin": "niúnǎi",
+    "english": "milk",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "鸡蛋",
+    "pinyin": "jīdàn",
+    "english": "egg",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "西瓜",
+    "pinyin": "xīguā",
+    "english": "watermelon",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "咖啡",
+    "pinyin": "kāfēi",
+    "english": "coffee",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "自行车",
+    "pinyin": "zìxíngchē",
+    "english": "bike",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "船",
+    "pinyin": "chuán",
+    "english": "boat",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "雪",
+    "pinyin": "xué",
+    "english": "snow",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "药",
+    "pinyin": "yào",
+    "english": "medicine",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "手机",
+    "pinyin": "shǒujī",
+    "english": "phone",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "手表",
+    "pinyin": "shǒubiǎo",
+    "english": "watch",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "眼睛",
+    "pinyin": "yǎnjīng",
+    "english": "eye",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "身体",
+    "pinyin": "shēntǐ",
+    "english": "body",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "公共汽车",
+    "pinyin": "gōnggòngqìchē",
+    "english": "bus",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "报纸",
+    "pinyin": "bàozhǐ",
+    "english": "newspaper",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "人",
+    "pinyin": "rén",
+    "english": "person",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "名字",
+    "pinyin": "míngzi",
+    "english": "name",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "书",
+    "pinyin": "shū",
+    "english": "book",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "汉语",
+    "pinyin": "hànyǔ",
+    "english": "Chinese",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "字",
+    "pinyin": "zì",
+    "english": "character",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "桌子",
+    "pinyin": "zhuōzi",
+    "english": "desk",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "椅子",
+    "pinyin": "yǐzi",
+    "english": "chair",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "门",
+    "pinyin": "mén",
+    "english": "door",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "题",
+    "pinyin": "tí",
+    "english": "topic",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "课",
+    "pinyin": "kè",
+    "english": "lesson",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "姓",
+    "pinyin": "xìng",
+    "english": "surname",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "问题",
+    "pinyin": "wèntí",
+    "english": "question",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  },
+  {
+    "character": "事情",
+    "pinyin": "shìqing",
+    "english": "matter",
+    "hsk_level": "2",
+    "hsk_section": "3"
+  }
+]
