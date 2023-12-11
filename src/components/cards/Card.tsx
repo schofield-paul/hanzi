@@ -32,6 +32,10 @@ const Card: React.FC<CardProps> = ({ data }) => {
           strokeAnimationSpeed: 2,
         });
       });
+      newWriters.forEach((writer) => {
+        writer.quiz();
+      });
+
       setWriters(newWriters);
     }
   }, [currentIndex, data]);
