@@ -1,23 +1,28 @@
-h1 {
-  margin: 0;
-  padding-top: 1.3rem;
-  color: #61dafb;
-  font-size: 2.1rem;
-  display: flex;
-  align-content: flex-start;
-}
-
 .app {
-  text-align: left;
-  background-color: #0f0f0f;
-  color: white;
-  min-height: 105vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #0f0f0f;
+  color: white;
   font-family: "Roboto", sans-serif;
-  padding: 20px;
+  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: left;
+}
+
+h1 {
+  color: #61dafb;
+  font-size: 2.1rem;
+  margin: 0;
+  padding-top: 1.3rem;
+}
+
+.landingImage {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 1rem 0;
 }
 
 .hero {
@@ -25,35 +30,48 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   background-color: #0f0f0f;
   color: #72878c;
   padding: 1rem;
   margin-bottom: 2rem;
+  text-align: center;
+}
+
+.title,
+.subtitle {
+  line-height: 1.2;
 }
 
 .title {
-  font-size: 70px;
-  line-height: 80px;
+  font-size: 4.5rem;
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 1.5rem;
 }
 
 @media screen and (max-width: 767px) {
   .title {
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 3rem;
   }
-  body,
-  html {
-    overflow-x: hidden;
+
+  .subtitle {
+    font-size: 1rem;
   }
+
   .app {
-    padding: 50px;
-    overflow-x: hidden;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 4rem;
+    max-width: 800px;
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
   }
 }
