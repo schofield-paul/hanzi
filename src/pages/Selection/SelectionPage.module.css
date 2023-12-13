@@ -54,18 +54,4 @@
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   margin-top: 30px;
   padding: 5px 5px 5px 5px;
-  &:disabled {
-    background-color: red;
-    pointer-events: none;
-  }
-}
-
-.selected {
-  background-color: grey;
-  &:active {
-    background-color: pink;
-  }
-}
-.notSelected {
-  background-color: white;
 }

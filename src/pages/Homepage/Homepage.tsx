@@ -1,4 +1,4 @@
-import SelectStageSection from "../../sections/SelectStage/SelectStageSection";
+import Selections from "../Selection/SelectionPage";
 import classNames from "classnames";
 import style from "./HomePage.module.css";
 import landingImage from "../../assets/landing.jpeg";
@@ -21,7 +21,7 @@ export default function Homepage() {
         </h2>
       </div>
 
-      <SelectStageSection />
+      <Selections />
     </div>
   );
 }
