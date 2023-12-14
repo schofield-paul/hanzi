@@ -4,9 +4,10 @@ const cors = require("cors");
 
 app.use(express.json());
 
-// allow all
 const corsOptions = {
-  origin: "*",
+  origin: ["https://www.hanzi-app.com", "https://www.hanzi-app.com/"],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type,Authorization",
 };
 app.use(cors(corsOptions));
 
@@ -594,11 +595,3 @@ app.post("/hanzi", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
 });
-
-/* Cors temp
-const corsOptions = {
-  origin: ["https://www.hanzi-app.com", "https://www.hanzi-app.com/"],
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
-};
-*/
