@@ -21,8 +21,8 @@ const useFetchData = ({
       setIsLoading(true);
       const response = await fetch(
         `https://hanzi-app.onrender.com/hanzi?hsk_level=${encodeURIComponent(
-          selectedLevel || ""
-        )}&hsk_section=${encodeURIComponent(selectedSection || "")}`
+          selectedLevel || 1
+        )}&hsk_section=${encodeURIComponent(selectedSection || 1)}`
       );
 
       if (!response.ok) {
