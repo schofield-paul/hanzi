@@ -33,15 +33,16 @@ export default function SelectStageSection() {
         <div className={style.dropdownContent}>
           {Array.from(Array(3).keys()).map((level) => (
             <button
-              key={`level-${level}`}
+              key={`level-${level + 1}`}
               className={classNames(style.btn, {
-                [style.selected]: selectedItems["selectedLevel"] === level,
-                [style.notSelected]: selectedItems["selectedLevel"] !== level,
+                [style.selected]: selectedItems["selectedLevel"] === level + 1,
+                [style.notSelected]:
+                  selectedItems["selectedLevel"] !== level + 1,
               })}
-              onClick={() => handleItemClick("selectedLevel", level)}
+              onClick={() => handleItemClick("selectedLevel", level + 1)}
               disabled={selectedLevel === level}
             >
-              HSK {level}
+              HSK {level + 1}
             </button>
           ))}
         </div>
