@@ -18,13 +18,14 @@ const Card: React.FC<CardProps> = ({ data }) => {
     }
     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
   };
+  const isMobile = window.innerWidth < 500;
 
   useEffect(() => {
     if (characterTargetRef.current) {
       const charactersArray = Array.from(data[currentIndex].character);
       const newWriters = charactersArray.map((character, index) => {
         return HanziWriter.create(characterTargetRef.current!, character, {
-          width: 100,
+          width: isMobile ? 500 : 100,
           height: 100,
           padding: 5,
           showCharacter: false,
