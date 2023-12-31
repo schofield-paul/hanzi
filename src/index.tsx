@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Application from "./pages/Application/ApplicationPage";
 import Homepage from "./pages/Homepage/Homepage";
+import SelectStageSection from "./sections/SelectStage/SelectStageSection";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
   {
     path: "/app",
     element: <Application />,
+    errorElement: <div>404 Not Found</div>,
+  },
+  {
+    path: "/selection",
+    element: <SelectStageSection />,
     errorElement: <div>404 Not Found</div>,
   },
 ]);

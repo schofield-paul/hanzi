@@ -2,26 +2,39 @@ import SelectStageSection from "../../sections/SelectStage/SelectStageSection";
 import classNames from "classnames";
 import style from "./HomePage.module.css";
 import landingImage from "../../assets/landing.jpeg";
+import Header from "../../components/Header/Header";
+import heroImage from "../../assets/hero.png";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
-    <div className={classNames(style.app)}>
-      <h1>Hanzi</h1>
-      <div className={classNames("hero", style.hero)}>
-        <img
-          src={landingImage}
-          className={classNames(style.landingImage)}
-          alt="Landing"
-        />
-        <h1 className={classNames("title", style.title)}>
-          The best way to learn Chinese characters
-        </h1>
-        <h2 className={classNames("subtitle", style.subtitle)}>
-          Become fluent with stroke order practice
-        </h2>
+    <>
+      <Header />
+      <div className={style.wrapper}>
+        <div className={style.app}>
+          <h1 className={classNames("title", style.title)}>
+            <span className={classNames("gradient-text", style.gradientText)}>
+              {" "}
+              Learn Chinese characters with ease
+            </span>
+          </h1>
+          <h2 className={classNames("subtitle", style.subtitle)}>
+            Become fluent with stroke order practice
+          </h2>
+          <div className={classNames("hero", style.hero)}>
+            <img
+              src={heroImage}
+              className={classNames(style.heroImage)}
+              alt="Hero"
+            />
+          </div>
+          <Link to="/selection">
+            <button className={classNames("button", style.button)}>
+              Get Started
+            </button>
+          </Link>
+        </div>
       </div>
-
-      <SelectStageSection />
-    </div>
+    </>
   );
 }
