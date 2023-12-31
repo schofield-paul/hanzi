@@ -62,15 +62,55 @@ h1 {
 @media screen and (max-width: 767px) {
   .title {
     font-size: 3rem;
+    text-align: center;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .heroImage {
+    max-height: 500px;
   }
 
   .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: calc(10px + 2vmin);
+    min-height: 100vh;
+    text-align: left;
     padding: 1rem;
+    background-color: #0f0f0f;
   }
+}
+
+.button {
+  background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #ff6e7f;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -87,6 +127,12 @@ h1 {
 }
 
 @media screen and (min-width: 1024px) {
+  .title {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    max-width: 800px;
+  }
+
   .app {
     display: flex;
     flex-direction: column;

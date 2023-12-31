@@ -4,6 +4,7 @@ import style from "./HomePage.module.css";
 import landingImage from "../../assets/landing.jpeg";
 import Header from "../../components/Header/Header";
 import heroImage from "../../assets/hero.png";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
@@ -27,10 +28,13 @@ export default function Homepage() {
               alt="Hero"
             />
           </div>
+          <Link to="/selection">
+            <button className={classNames("button", style.button)}>
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     </>
   );
 }
-
-//   <SelectStageSection />
