@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import HanziWriter from "hanzi-writer";
 import "./card.css";
 import { Data } from "./types";
+import CardComponent from "../Card";
 
 interface CardProps {
   data: Data[];
@@ -18,13 +19,14 @@ const Card: React.FC<CardProps> = ({ data }) => {
     }
     setCurrentIndex((prevIndex) => (prevIndex + 1) % data.length);
   };
+  const isMobile = window.innerWidth < 500;
 
   useEffect(() => {
     if (characterTargetRef.current) {
       const charactersArray = Array.from(data[currentIndex].character);
       const newWriters = charactersArray.map((character, index) => {
         return HanziWriter.create(characterTargetRef.current!, character, {
-          width: 100,
+          width: isMobile ? 500 : 100,
           height: 100,
           padding: 5,
           showCharacter: false,
@@ -63,18 +65,30 @@ const Card: React.FC<CardProps> = ({ data }) => {
 
   return (
     <>
-      <p>{data[currentIndex].english}</p>
-      <p>{data[currentIndex].pinyin}</p>
-
+      /* <p>{data[currentIndex].english}</p>
+      /* <p>{data[currentIndex].pinyin}</p> */ /*{" "}
       <div className="pair-container">
         <div className="pair-1">
-          <div ref={characterTargetRef}></div>
+          <div ref={characterTargetRef} />
         </div>
       </div>
       <button onClick={() => animateCharacter(0)}>Animate</button>
-      <button onClick={showNextPair}>Next Pair</button>
+      <button onClick={showNextPair}>Next Pair</button> */
     </>
   );
 };
 
 export default Card;
+
+/*
+Replace with current component 
+
+    <>
+      <CardComponent
+        languageEng={data[currentIndex].english}
+        languagePin={data[currentIndex].pinyin}
+        ref={characterTargetRef}
+        clickAnimate={() => animateCharacter(0)}
+        clickNext={showNextPair}
+      />
+      */
