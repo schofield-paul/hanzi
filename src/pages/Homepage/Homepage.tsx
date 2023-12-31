@@ -11,6 +11,15 @@ export default function Homepage() {
       <Header />
       <div className={style.wrapper}>
         <div className={style.app}>
+          <h1 className={classNames("title", style.title)}>
+            <span className={classNames("gradient-text", style.gradientText)}>
+              {" "}
+              Learn Chinese characters with ease
+            </span>
+          </h1>
+          <h2 className={classNames("subtitle", style.subtitle)}>
+            Become fluent with stroke order practice
+          </h2>
           <div className={classNames("hero", style.hero)}>
             <img
               src={heroImage}
@@ -18,13 +27,6 @@ export default function Homepage() {
               alt="Hero"
             />
           </div>
-
-          <h1 className={classNames("title", style.title)}>
-            Learn Chinese characters with ease
-          </h1>
-          <h2 className={classNames("subtitle", style.subtitle)}>
-            Practice writing with stroke order
-          </h2>
         </div>
       </div>
     </>
