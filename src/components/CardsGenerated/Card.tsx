@@ -73,7 +73,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
         </div>
       </div>
       <button onClick={() => animateCharacter(0)}>Animate</button>
-      <button onClick={showNextPair}>Next Pair</button> */
+      <button onClick={showNextPair}>Next Pair</button>
     </>
   );
 };
