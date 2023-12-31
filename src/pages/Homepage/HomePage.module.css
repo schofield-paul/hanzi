@@ -2,39 +2,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
   color: black;
   font-family: "Roboto", sans-serif;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
-  padding: 2rem;
   text-align: left;
+  padding: 0rem;
+}
+
+.wrapper {
+  min-height: 100vh;
+  background-image: radial-gradient(circle at 50% 60%, #ffa333, #ffffff);
 }
 
 h1 {
-  color: #61dafb;
+  color: rgb(56, 54, 62);
   font-size: 2.1rem;
-  margin: 0;
+  margin-left: 1rem;
   padding-top: 1.3rem;
-}
-
-.landingImage {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  margin: 1rem 0;
 }
 
 .hero {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  color: #72878c;
-  padding: 1rem;
-  margin-bottom: 2rem;
+  color: #3d494c;
   text-align: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  height: 1000px;
 }
 
 .title,
@@ -65,7 +67,7 @@ h1 {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .title {
     font-size: 4rem;
     max-width: 800px;
@@ -73,5 +75,37 @@ h1 {
 
   .subtitle {
     font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    font-family: "Roboto", sans-serif;
+    font-size: calc(10px + 2vmin);
+    min-height: 100vh;
+    text-align: left;
+    padding: 0rem;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .heroImage {
+    width: 1000px;
+    height: 1000px;
+  }
+
+  .wrapper {
+    min-height: 100vh;
   }
 }
