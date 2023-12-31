@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0f0f0f;
-  color: white;
+  background-color: white;
+  color: black;
   font-family: "Roboto", sans-serif;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
@@ -30,7 +30,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #0f0f0f;
+  background-color: white;
   color: #72878c;
   padding: 1rem;
   margin-bottom: 2rem;
