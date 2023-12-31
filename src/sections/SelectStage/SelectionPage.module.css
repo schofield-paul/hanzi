@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .dropdownContent {
@@ -51,7 +51,7 @@
   margin-top: 30px;
   padding: 5px 5px 5px 5px;
   &:disabled {
-    background-color: red;
+    background-color: rgb(248, 105, 39);
     pointer-events: none;
   }
 }
