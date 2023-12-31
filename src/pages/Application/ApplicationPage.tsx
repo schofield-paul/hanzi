@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Card from "../../components/cards/Card";
+import Card from "../../components/CardsGenerated/Card";
 import classNames from "classnames";
 import style from "./ApplicationPage.module.css";
 
