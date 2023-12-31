@@ -5,29 +5,29 @@ export interface CardProps {
   languageEng: any;
   languagePin: any;
   ref: any;
-  clicAnimate: any;
+  clickAnimate: any;
   showNextPair: () => void;
 }
 
-const Card = ({
+const CardComponent = ({
   languageEng,
   languagePin,
   ref,
-  clicAnimate,
+  clickAnimate,
   showNextPair,
 }: any) => {
   return (
-    <>
+    <div data-testid="card-element">
       {!!languageEng && <p>{languageEng}</p>}
       {!!languagePin && <p>{languagePin}</p>}
 
       <div className="pair-container">
         <div className="pair-1">{!!ref && <div ref={ref} />}</div>
       </div>
-      <button onClick={() => clicAnimate}>Animate</button>
+      <button onClick={() => clickAnimate}>Animate</button>
       <button onClick={showNextPair}>Next Pair</button>
-    </>
+    </div>
   );
 };
 
-export default Card;
+export default CardComponent;

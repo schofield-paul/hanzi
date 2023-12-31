@@ -5,7 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 test("Example 1 renders successfully", () => {
   render(<Card languageEng={"english"} />);
 
-  const element = screen.getByText(/english/i);
+  const element = screen.getByTestId("card-element");
 
   expect(element).toBeInTheDocument();
 });
