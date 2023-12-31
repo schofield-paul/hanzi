@@ -2,17 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-}
-
-.color {
-  background-color: #d35c00;
+  background-color: #0f0f0f;
+  color: #ddd4d4;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
 }
 
 .dropdownContent {
   display: flex;
   min-width: 15rem;
   justify-content: space-between;
+  color: #ddd4d4;
 }
 
 .selectPrompts {
@@ -20,14 +20,17 @@
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
+  color: white;
+  font-size: 1.5rem;
 }
 
-.btn {
+.btn,
+.startButton {
   width: 100px;
   height: 50px;
-  color: rgb(44, 75, 122);
+  color: #6e6e6e;
   background-color: #fff;
-  border: 2px solid rgb(44, 75, 122);
+  border: 2px solid #8a8a8a;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
@@ -36,26 +39,34 @@
   padding: 5px 5px 5px 5px;
 }
 
-.btn:hover {
-  background-color: rgb(44, 75, 122);
-  color: #fff;
+.btn:hover,
+.startButton:hover {
+  background-color: #b6a181;
+  color: white;
+  border-color: #ffb84d;
 }
 
 .startButton {
   width: 105px;
-  height: 50px;
-  color: rgb(44, 75, 122);
-  background-color: #fff;
-  border: 2px solid rgb(44, 75, 122);
+  margin-top: 30px;
+  color: white;
+  background-color: #b6a181;
+  border: none;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  margin-top: 30px;
-  padding: 5px 5px 5px 5px;
+  padding: 10px 20px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
   &:disabled {
-    background-color: red;
+    background: #e0e0e0;
+    color: #9e9e9e;
     pointer-events: none;
   }
 }
@@ -66,6 +77,24 @@
     background-color: pink;
   }
 }
+
 .notSelected {
   background-color: white;
+}
+
+@media screen and (max-width: 767px) {
+  .btn,
+  .startButton {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .btn,
+  .startButton {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
 }

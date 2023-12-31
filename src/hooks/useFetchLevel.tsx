@@ -17,11 +17,6 @@ const useFetchData = ({
   console.log("selectedLevel", selectedLevel);
   console.log("selectedSection", selectedSection);
   const fetchData = async () => {
-    console.log(
-      `https://hanzi-app.onrender.com/hanzi?hsk_level=${encodeURIComponent(
-        selectedLevel || 1
-      )}&hsk_section=${encodeURIComponent(selectedSection || 1)}`
-    );
     try {
       setIsLoading(true);
       const response = await fetch(
