@@ -66,7 +66,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
   return (
     <>
       <p>{data[currentIndex].english}</p>
-      <p>{data[currentIndex].pinyin}</p> {" "}
+      <p>{data[currentIndex].pinyin}</p>{" "}
       <div className="pair-container">
         <div className="pair-1">
           <div ref={characterTargetRef} />
@@ -82,7 +82,6 @@ export default Card;
 
 /*
 Replace with current component 
-
     <>
       <CardComponent
         languageEng={data[currentIndex].english}
@@ -91,4 +90,4 @@ Replace with current component
         clickAnimate={() => animateCharacter(0)}
         clickNext={showNextPair}
       />
-      */
+*/

@@ -5,10 +5,6 @@
   margin-top: 50px;
 }
 
-.color {
-  background-color: #d35c00;
-}
-
 .dropdownContent {
   display: flex;
   min-width: 15rem;
