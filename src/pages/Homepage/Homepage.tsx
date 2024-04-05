@@ -54,25 +54,31 @@ export default function Homepage() {
   }) => {
     setInputValue(e.target.value);
   };
-
   return (
     <>
       <Header />
       <div className={styles.container}>
-        <label htmlFor="textInput">Enter text:</label>
-        <input
-          type="text"
-          id="textInput"
-          className={styles.input}
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-        <p className={styles.typedText}>Typed text: {inputValue}</p>
-        <div
-          ref={characterContainerRef}
-          className={[styles.characterContainer, styles.flexRow].join(" ")}
-        ></div>
-        <button onClick={animateCharacters}>Animate Characters</button>
+        <div className={styles.messageDisplay}>
+          <p className={styles.typedText}>Typed text: {inputValue}</p>
+          <div
+            ref={characterContainerRef}
+            className={[styles.characterContainer, styles.flexRow].join(" ")}
+          ></div>
+        </div>
+        <div className={styles.chatInput}>
+          <label htmlFor="textInput" className={styles.hiddenLabel}>
+            Enter text:
+          </label>
+          <input
+            type="text"
+            id="textInput"
+            className={styles.textInput}
+            value={inputValue}
+            onChange={handleInputChange}
+            placeholder="Type your message..."
+          />
+          <button onClick={animateCharacters}>Animate Characters</button>
+        </div>
       </div>
     </>
   );
