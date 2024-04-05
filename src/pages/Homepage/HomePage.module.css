@@ -158,6 +158,7 @@ h1 {
   .heroImage {
     width: 1000px;
     height: 1000px;
+    margin-bottom: 5rem;
   }
 
   .wrapper {
