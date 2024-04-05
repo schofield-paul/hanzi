@@ -19,8 +19,15 @@ export default function Homepage() {
             </span>
           </h1>
           <h2 className={classNames("subtitle", style.subtitle)}>
-            Become fluent with stroke order practice
+            Hanzi is a tool for learning Chinese through stroke order through
+            writing practice
           </h2>
+          <Link to="/selection">
+            <button className={classNames("button", style.button)}>
+              Get Started
+            </button>
+          </Link>
+
           <div className={classNames("hero", style.hero)}>
             <img
               src={heroImage}
@@ -28,11 +35,6 @@ export default function Homepage() {
               alt="Hero"
             />
           </div>
-          <Link to="/selection">
-            <button className={classNames("button", style.button)}>
-              Get Started
-            </button>
-          </Link>
         </div>
       </div>
     </>
