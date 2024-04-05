@@ -1,41 +1,78 @@
-import SelectStageSection from "../../sections/SelectStage/SelectStageSection";
-import classNames from "classnames";
-import style from "./HomePage.module.css";
-import landingImage from "../../assets/landing.jpeg";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Header from "../../components/Header/Header";
-import heroImage from "../../assets/hero.png";
-import { Link } from "react-router-dom";
+import styles from "./HomePage.module.css";
+import HanziWriter from "hanzi-writer";
 
 export default function Homepage() {
+  const [inputValue, setInputValue] = useState("");
+  const characterContainerRef = useRef<HTMLDivElement>(null);
+
+  const animateCharacters = useCallback(() => {
+    if (characterContainerRef.current && inputValue) {
+      characterContainerRef.current.innerHTML = "";
+      const characters = inputValue.split("");
+
+      const animateCharacter = (index: number) => {
+        const writer = HanziWriter.create(
+          characterContainerRef.current!.appendChild(
+            document.createElement("div")
+          ),
+          characters[index],
+          {
+            width: 100,
+            height: 200,
+            padding: 5,
+            showOutline: true,
+            strokeAnimationSpeed: 2,
+          }
+        );
+
+        if (writer) {
+          writer.showCharacter();
+          writer.animateCharacter({
+            onComplete: () => {
+              if (index < characters.length - 1) {
+                animateCharacter(index + 1);
+              }
+            },
+          });
+        }
+      };
+
+      animateCharacter(0);
+    }
+  }, [characterContainerRef, inputValue]);
+
+  useEffect(() => {
+    if (characterContainerRef.current) {
+      characterContainerRef.current.innerHTML = "";
+    }
+  }, [inputValue]);
+
+  const handleInputChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <>
       <Header />
-      <div className={style.wrapper}>
-        <div className={style.app}>
-          <h1 className={classNames("title", style.title)}>
-            <span className={classNames("gradient-text", style.gradientText)}>
-              {" "}
-              Learn Chinese characters with ease
-            </span>
-          </h1>
-          <h2 className={classNames("subtitle", style.subtitle)}>
-            Hanzi is a tool for learning Chinese through stroke order through
-            writing practice
-          </h2>
-          <Link to="/selection">
-            <button className={classNames("button", style.button)}>
-              Get Started
-            </button>
-          </Link>
-
-          <div className={classNames("hero", style.hero)}>
-            <img
-              src={heroImage}
-              className={classNames(style.heroImage)}
-              alt="Hero"
-            />
-          </div>
-        </div>
+      <div className={styles.container}>
+        <label htmlFor="textInput">Enter text:</label>
+        <input
+          type="text"
+          id="textInput"
+          className={styles.input}
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <p className={styles.typedText}>Typed text: {inputValue}</p>
+        <div
+          ref={characterContainerRef}
+          className={[styles.characterContainer, styles.flexRow].join(" ")}
+        ></div>
+        <button onClick={animateCharacters}>Animate Characters</button>
       </div>
     </>
   );

@@ -80,15 +80,3 @@ const Card: React.FC<CardProps> = ({ data }) => {
 };
 
 export default Card;
-
-/*
-Replace with current component 
-    <>
-      <CardComponent
-        languageEng={data[currentIndex].english}
-        languagePin={data[currentIndex].pinyin}
-        ref={characterTargetRef}
-        clickAnimate={() => animateCharacter(0)}
-        clickNext={showNextPair}
-      />
-*/
