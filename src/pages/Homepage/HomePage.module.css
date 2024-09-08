@@ -18,6 +18,47 @@ h1 {
   padding-top: 1.3rem;
 }
 
+.title {
+  font-size: 4.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  animation: moveUp 0.9s ease-out forwards;
+}
+
+.gradientText {
+  background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  position: relative;
+}
+
+.subtitle {
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: #ddd4d4;
+  max-width: 700px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin: 25px 40px 40px 40px;
+  animation: moveUp 0.9s ease-out forwards;
+}
+
+.button {
+  background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  margin-bottom: 3.5rem;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -33,29 +74,6 @@ h1 {
   height: 100%;
   object-fit: cover;
   height: 1000px;
-}
-
-.subtitle {
-  font-size: 2.1rem;
-  font-weight: 500;
-  color: #ddd4d4;
-  max-width: 700px;
-  margin-bottom: 40px;
-  text-align: center;
-  margin: 40px auto;
-}
-
-.title {
-  font-size: 4.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
-}
-
-.gradientText {
-  background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline;
 }
 
 @media screen and (max-width: 767px) {
@@ -85,21 +103,6 @@ h1 {
     padding: 1rem;
     background-color: #0f0f0f;
   }
-}
-
-.button {
-  background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
-  color: white;
-  border: none;
-  padding: 15px 25px;
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-top: 0.5rem;
-  margin-bottom: 3.5rem;
 }
 
 .button:hover {
@@ -163,5 +166,16 @@ h1 {
 
   .wrapper {
     min-height: 100vh;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
