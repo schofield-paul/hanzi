@@ -27,20 +27,19 @@
 .h2 {
   font-size: 1.5rem;
   color: white;
-  margin: 22px 0px 0px 15px;
+  margin: 20px 0px 0px 15px;
 }
 
 .h2b {
   font-size: 1.5rem;
   color: white;
-  margin: 15px 20px 10px 30px;
+  margin: 29px 20px 20px 15px;
 }
 
 .link {
   text-decoration: none;
   color: inherit;
   margin: 0px 10px;
-  padding: 10px;
 }
 
 .buttonContainer {
