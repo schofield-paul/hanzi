@@ -5,12 +5,17 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className={style.app}>
-      <div className={style.headerContainer}>
+      <div className={style.headerContainer1}>
         <Link to="/" className={style.link}>
           <h2 className={style.h1}>Hanzi</h2>
         </Link>
         <Link to="/selection" className={style.link}>
           <h2 className={style.h2}>Words</h2>
+        </Link>
+      </div>
+      <div className={style.headerContainer2}>
+        <Link to="/about" className={style.link}>
+          <h2 className={style.h2b}>About</h2>
         </Link>
         {/*<h2 className={style.h2}>Input </h2>*/}
         {/*<h2 className={style.h2}>Sentences</h2>*/}
