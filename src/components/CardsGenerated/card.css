@@ -1,7 +1,6 @@
 .pair-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
   background-color: #282c34;
   margin: 1rem;
@@ -14,7 +13,7 @@
 
 .pair-1 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
@@ -34,6 +33,11 @@
   font-weight: bold;
   text-align: center;
   margin: 2rem 0 1rem 0;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 p {
