@@ -36,26 +36,13 @@ const CardComponent = React.forwardRef<HTMLDivElement, CardProps>(
             <div ref={characterRef} />
           </div>
         </div>
-        <button onClick={clickAnimate}>Animate</button>
-        <button onClick={showNextPair}>Next Pair</button>
+        <div className="button-wrapper">
+          <button onClick={clickAnimate}>Animate</button>
+          <button onClick={showNextPair}>Next Pair</button>
+        </div>
       </div>
     );
   }
 );
 
 export default CardComponent;
-
-/*
-    <>
-      <p className="pinyinText">{data[currentIndex].pinyin}</p>{" "}
-      <p className="englishText">{data[currentIndex].english} </p>
-      <div className="pair-container">
-        <div className="pair-1">
-          <div ref={characterTargetRef} />
-        </div>
-      </div>
-      <button onClick={() => animateCharacter(0)}>Animate</button>
-      <button onClick={showNextPair}>Next Pair</button>
-    </>
-  );
-*/
