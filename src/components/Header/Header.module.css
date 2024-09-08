@@ -2,47 +2,53 @@
   background-color: #0f0f0f;
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  align-items: center;
   border-bottom: #d5dadb 1px solid;
+  padding: 10px 20px;
+  justify-content: space-between;
 }
 
-.headerContainer {
+.headerContainer1 {
   display: flex;
-  flex-direction: row;
+  width: 100%;
+}
+
+.headerContainer2 {
+  display: flex;
+  width: 100%;
   justify-content: flex-end;
-  align-items: center;
 }
 
 .h1 {
   font-size: 2.5rem;
-  text-align: right;
   color: #d5dadb;
-  align-items: center;
-  margin: 10px 10px 10px 10px;
+  margin: 10px 10px 5px 20px;
 }
 
 .h2 {
   font-size: 1.5rem;
-  text-align: right;
   color: white;
-  align-items: center;
-  margin: 15px 5px 10px 0px;
+  margin: 22px 0px 0px 15px;
+}
+
+.h2b {
+  font-size: 1.5rem;
+  color: white;
+  margin: 15px 20px 10px 30px;
 }
 
 .link {
   text-decoration: none;
   color: inherit;
-  display: block;
-  margin: 0px 10px 0px 10px;
-  padding: 10px 10px 10px 10px;
+  margin: 0px 10px;
+  padding: 10px;
 }
 
 .buttonContainer {
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  margin: 10px 10px 10px 10px;
+  margin: 10px;
 }
 
 .button {
@@ -50,9 +56,7 @@
   border: 2px solid white;
   color: white;
   padding: 10px 20px;
-  text-align: right;
-  text-decoration: none;
   font-size: 1.2rem;
-  margin: 0px 8px 0px 10px;
+  margin: 0px 8px;
   cursor: pointer;
 }
