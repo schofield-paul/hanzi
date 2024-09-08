@@ -14,7 +14,7 @@ export default function About() {
         <h1 className={style.h1}>About</h1>
         <p className={style.paragraph}>
           After many attempts to stich together online conversion tools, Anki
-          decks, translation sites, and GPT generated context—I realized it was
+          decks, translation sites, and GPT generated content—I realized it was
           time to build the tool I needed.
         </p>
         <p className={style.paragraph}>
