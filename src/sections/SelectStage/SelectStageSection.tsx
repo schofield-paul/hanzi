@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import style from "./SelectionPage.module.css";
 import useFetchData from "../../hooks/useFetchLevel";
-import Header from "../../components/Header/Header";
 
 export default function SelectStageSection() {
   const [selectedItems, setSelectedItems] = useState({
@@ -29,7 +28,6 @@ export default function SelectStageSection() {
 
   return (
     <>
-      <Header />
       <div className={style.contentContainer}>
         <div>
           <h3 className={style.selectPrompts}>Select HSK Level</h3>
