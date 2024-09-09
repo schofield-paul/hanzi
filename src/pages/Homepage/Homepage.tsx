@@ -19,8 +19,8 @@ export default function Homepage() {
             </span>
           </h1>
           <h2 className={classNames("subtitle", style.subtitle)}>
-            Hanzi is a tool for learning Chinese through stroke order through
-            writing practice
+            Hanzi is a tool for learning Chinese characters through stroke order
+            writing
           </h2>
           <Link to="/selection">
             <button className={classNames("button", style.button)}>
