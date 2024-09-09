@@ -1,15 +1,11 @@
-import SelectStageSection from "../../sections/SelectStage/SelectStageSection";
 import classNames from "classnames";
 import style from "./HomePage.module.css";
-import landingImage from "../../assets/landing.jpeg";
-import Header from "../../components/Header/Header";
 import heroImage from "../../assets/hero.png";
 import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
     <>
-      <Header />
       <div className={style.wrapper}>
         <div className={style.app}>
           <h1 className={classNames("title", style.title)}>

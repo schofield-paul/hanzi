@@ -1,15 +1,8 @@
-import SelectStageSection from "../../sections/SelectStage/SelectStageSection";
-import classNames from "classnames";
 import style from "./AboutPage.module.css";
-import landingImage from "../../assets/landing.jpeg";
-import Header from "../../components/Header/Header";
-import heroImage from "../../assets/hero.png";
-import { Link } from "react-router-dom";
 
 export default function About() {
   return (
     <>
-      <Header />
       <div className={style.app}>
         <h1 className={style.h1}>About</h1>
         <p className={style.paragraph}>
@@ -24,8 +17,7 @@ export default function About() {
         </p>
         <p className={style.paragraph}>
           Beginners can start on HSK 1 and work their way up through HSK 3
-          vocabulary. Any feedback, suggestions, or feature requests can be
-          submitted below.&nbsp; 快乐学习！
+          vocabulary.&nbsp; 快乐学习！
         </p>
         <p className={style.paragraph}></p>
         <p className={style.paragraph}></p>

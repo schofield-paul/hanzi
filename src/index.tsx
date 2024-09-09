@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./layout";
 import Application from "./pages/Application/ApplicationPage";
 import Homepage from "./pages/Homepage/Homepage";
 import About from "./pages/About/AboutPage";
@@ -12,24 +13,29 @@ import SelectStageSection from "./sections/SelectStage/SelectStageSection";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Homepage />,
-    errorElement: <div>404 Not Found</div>,
-  },
-  {
-    path: "/app",
-    element: <Application />,
-    errorElement: <div>404 Not Found</div>,
-  },
-  {
-    path: "/selection",
-    element: <SelectStageSection />,
-    errorElement: <div>404 Not Found</div>,
-  },
-  {
-    path: "/about",
-    element: <About />,
-    errorElement: <div>404 Not Found</div>,
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Homepage />,
+        errorElement: <div>404 Not Found</div>,
+      },
+      {
+        path: "/app",
+        element: <Application />,
+        errorElement: <div>404 Not Found</div>,
+      },
+      {
+        path: "/selection",
+        element: <SelectStageSection />,
+        errorElement: <div>404 Not Found</div>,
+      },
+      {
+        path: "/about",
+        element: <About />,
+        errorElement: <div>404 Not Found</div>,
+      },
+    ],
   },
 ]);
 
