@@ -14,8 +14,6 @@ const useFetchData = ({
 }: FetchDataHookProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  console.log("selectedLevel", selectedLevel);
-  console.log("selectedSection", selectedSection);
   const fetchData = async () => {
     try {
       setIsLoading(true);
@@ -36,7 +34,6 @@ const useFetchData = ({
 
       setSelectedItems((prevItems: any) => ({ ...prevItems, data: result }));
       navigate("/app", { state: { data: result } });
-      console.log("result", result);
       window.scrollTo(0, 0);
     } catch (error) {
       console.error("Error fetching data:", error);
