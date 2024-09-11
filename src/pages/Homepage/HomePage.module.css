@@ -7,7 +7,7 @@
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
   text-align: left;
-  padding: 0rem;
+  padding: 0;
   background-color: #0f0f0f;
 }
 
@@ -25,7 +25,7 @@ h1 {
   animation: moveUp 0.9s ease-out forwards;
 }
 
-= .gradientText {
+.gradientText {
   background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

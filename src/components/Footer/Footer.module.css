@@ -1,6 +1,11 @@
+.footerWrapper {
+  background-color: rgb(214, 231, 255);
+}
+
 .h1 {
   display: flex;
   justify-content: center;
-  color: #d5dadb;
-  margin: 10px 0px 10px 0px;
+  color: black;
+  margin: 0px 0px 10px 0px;
+  padding-top: 15px;
 }

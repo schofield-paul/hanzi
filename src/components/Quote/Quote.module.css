@@ -1,0 +1,19 @@
+.quoteWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  max-width: 100%;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #0f0f0f 20%, rgb(214, 231, 255) 100%);
+}
+
+.quoteText {
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: #000000;
+  margin-top: 220px;
+  max-width: 60%;
+}
