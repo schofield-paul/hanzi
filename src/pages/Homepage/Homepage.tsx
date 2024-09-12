@@ -2,6 +2,7 @@ import classNames from "classnames";
 import style from "./HomePage.module.css";
 import heroImage from "../../assets/hero.png";
 import Quote from "../../components/Quote/Quote";
+import InfoCard from "../../components/InfoCards/InfoCard";
 import { Link } from "react-router-dom";
 
 export default function Homepage() {
@@ -34,6 +35,7 @@ export default function Homepage() {
           </div>
         </div>
         <Quote />
+        <InfoCard />
       </div>
     </>
   );
