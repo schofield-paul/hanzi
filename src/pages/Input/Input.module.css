@@ -1,0 +1,9 @@
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0f0f0f;
+    color: #ddd4d4;
+    font-family: "Roboto", sans-serif;
+    height: 100vh;
+  }
