@@ -2,6 +2,15 @@ import style from "./Input.module.css";
 import { useRef, useState, useEffect } from "react";
 import HanziWriter from "hanzi-writer";
 
+/*
+const fetchData = async () => {
+  const response = await fetch("http://localhost:3005/foo");
+  console.log(response);
+};
+
+fetchData();
+*/
+
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
