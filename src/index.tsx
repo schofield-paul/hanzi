@@ -9,6 +9,7 @@ import Layout from "./layout";
 import Application from "./pages/Application/ApplicationPage";
 import Homepage from "./pages/Homepage/Homepage";
 import About from "./pages/About/AboutPage";
+import Input from "./pages/Input/Input";
 import SelectStageSection from "./sections/SelectStage/SelectStageSection";
 
 const router = createBrowserRouter([
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
         element: <SelectStageSection />,
         errorElement: <div>404 Not Found</div>,
       },
+      {
+        path: "/input",
+        element: <Input />,
+        errorElement: <div>404 Not Found</div>,
+      },
+
       {
         path: "/about",
         element: <About />,

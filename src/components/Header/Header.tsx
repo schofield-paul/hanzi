@@ -12,6 +12,9 @@ export default function Header() {
         <Link to="/selection" className={style.link}>
           <h2 className={style.h2}>Words</h2>
         </Link>
+        <Link to="/input" className={style.link}>
+          <h2 className={style.h2}>Input</h2>
+        </Link>
       </div>
       <div className={style.headerContainer2}>
         <Link to="/about" className={style.link}>
