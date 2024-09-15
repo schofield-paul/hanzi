@@ -63,7 +63,9 @@ export default function Input() {
     <>
       <div className={style.contentContainer}>
         <h1 className={style.mainText}>Input Mandarin to translate</h1>
-        <form onSubmit={handleSubmit}>
+        <form
+        //onSubmit={handleSubmit}
+        >
           <input
             className="form"
             type="text"
