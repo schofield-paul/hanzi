@@ -3,11 +3,18 @@ const express = require("express");
 const router = express.Router();
 const { connectToTranslationAPI } = require("./translation.js");
 
-router.get("/", async (req, res) => {
-  console.log("Hello");
+router.post("/", async (req, res) => {
+  const { text, targetLanguage } = req.body;
+
+  if (!text || !targetLanguage) {
+    return res
+      .status(400)
+      .json({ error: "Text and target language are required" });
+  }
+
   try {
-    const translatedText = await connectToTranslationAPI();
-    console.log(translatedText);
+    const translatedText = await connectToTranslationAPI(text, targetLanguage);
+    console.log("Translated Text:", translatedText);
 
     res.status(200).json(translatedText);
   } catch (err) {
