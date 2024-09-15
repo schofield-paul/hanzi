@@ -6,7 +6,7 @@ export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Function to detect if input contains Mandarin characters
+  // Function to detect if input contains English characters
   const containsEnglish = (input: string) => {
     const englishRegex = /^[a-zA-Z\s]+$/; // Regular expression for English letters and spaces
     return englishRegex.test(input);
