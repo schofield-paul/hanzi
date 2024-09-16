@@ -7,13 +7,13 @@
   height: 600px;
   margin: 0;
   padding: 0;
-  background: linear-gradient(-45deg, #f5f7fa, #c3cfe2);
+  background: #0f0f0f;
 }
 
 .quoteText {
   font-size: 1.75rem;
   font-weight: 300;
-  color: #000000;
+  color: white;
   margin-top: 220px;
   max-width: 60%;
 }
