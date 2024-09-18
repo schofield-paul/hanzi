@@ -54,8 +54,8 @@
 
 @media (max-width: 768px) {
   .card {
-    width: 90vw;
-    height: auto;
+    width: 80vw;
+    height: 300px;
   }
 
   .cardHeader {
