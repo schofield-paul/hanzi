@@ -75,7 +75,7 @@
 
 @media (max-width: 480px) {
   .card {
-    width: 100vw;
+    width: 900vw;
     height: auto;
     border-radius: 10px;
   }
