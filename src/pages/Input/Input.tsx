@@ -1,6 +1,7 @@
 import style from "./Input.module.css";
 import { useRef, useState, useEffect } from "react";
 import HanziWriter from "hanzi-writer";
+import useFetchData from "../../hooks/useFetchLevel";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");

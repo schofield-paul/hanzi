@@ -10,25 +10,37 @@ const corsOptions = {
     "https://www.hanzi-app.com/",
     "http://192.168.1.95:3000",
     "http://localhost:3005/",
-    "http://localhost:3000",
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type,Authorization",
 };
 app.use(cors(corsOptions));
 
+const Hanzi = require("./hanzi.js");
 const { connectToDB } = require("./database.js");
 const { connectToTranslationAPI } = require("./translation.js");
-
-// Import routes
-const hanziRoutes = require("./hanziRoute");
-const fooRoutes = require("./translationAPI");
+console.log("Database:", connectToDB);
 
 const port = process.env.PORT || 3005;
 
-// Use routes
-app.use("/hanzi", hanziRoutes);
-app.use("/foo", fooRoutes);
+// Get Hanzi objects array by HSK section and level
+app.get("/hanzi", async (req, res) => {
+  const { hsk_level, hsk_section } = req.query;
+  try {
+    await connectToDB();
+    await connectToTranslationAPI();
+
+    const hanziData = await Hanzi.find({
+      hsk_level: hsk_level,
+      hsk_section: hsk_section,
+    });
+
+    res.status(200).json(hanziData);
+  } catch (err) {
+    console.error("Error:", err.message);
+    res.status(500).send("Server Error");
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
