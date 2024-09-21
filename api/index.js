@@ -17,7 +17,6 @@ app.use(cors(corsOptions));
 
 const Hanzi = require("./hanzi.js");
 const { connectToDB } = require("./database.js");
-console.log("Database:", connectToDB);
 
 const port = process.env.PORT || 3000;
 
