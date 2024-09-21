@@ -32,7 +32,7 @@ export default function Input() {
 
       const result = await response.json();
       console.log(result);
-      return result;
+      return result.translation;
     } catch (error) {
       console.error("Error fetching data:", error);
     }
