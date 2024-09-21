@@ -3,15 +3,18 @@ import { useRef, useState, useEffect } from "react";
 import HanziWriter from "hanzi-writer";
 
 const fetchDataTest = async () => {
-  const response = await fetch("http://localhost:3005/foo");
+  const response = await fetch("http://localhost:3005/translation");
   console.log(response);
 };
-
-fetchDataTest();
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
+
+  // useEffect(() => {
+  //   // This will only run when the Input component is mounted
+  //   fetchDataTest();
+  // }, []);
 
   // Function to detect if input contains English characters
   const containsEnglish = (input: string) => {

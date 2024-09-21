@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 const password = process.env.MONGODB_PASSWORD;
 
 const uri = `mongodb+srv://paulschofield:${password}@hanzi.zyheasm.mongodb.net/?retryWrites=true&w=majority`;

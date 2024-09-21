@@ -1,7 +1,7 @@
 // fooRoutes.js
 const express = require("express");
 const router = express.Router();
-const { connectToTranslationAPI } = require("./translation.js");
+const { connectToTranslationAPI } = require("./translationConnection.js");
 
 router.get("/", async (req, res) => {
   const { text, targetLanguage } = req.body;

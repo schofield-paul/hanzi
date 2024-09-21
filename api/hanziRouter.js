@@ -1,17 +1,20 @@
 // hanziRoutes.js
 const express = require("express");
 const router = express.Router();
-const Hanzi = require("./hanzi.js");
+const Hanzi = require("./hanziModel.js");
 const { connectToDB } = require("./database.js");
-const { connectToTranslationAPI } = require("./translation.js");
+const { connectToTranslationAPI } = require("./translationConnection.js");
 
 // Get Hanzi objects array by HSK section and level
 router.get("/", async (req, res) => {
-  const { hsk_level, hsk_section } = req.query;
-
-  console.log(
+  console.log("Hanzi route");
+  /* console.log(
     `Received request with level: ${hsk_level}, section: ${hsk_section}`
-  );
+  
+    );
+*/
+
+  const { hsk_level, hsk_section } = req.query;
 
   try {
     await connectToDB();

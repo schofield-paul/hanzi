@@ -18,14 +18,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Import routes
-const hanziRoutes = require("./hanziRoutes");
-const fooRoutes = require("./translationAPI");
+const hanziRoutes = require("./hanziRouter");
+const translationRoutes = require("./translationAPI");
 
 const port = process.env.PORT || 3005;
 
 // Use routes
 app.use("/hanzi", hanziRoutes);
-app.use("/foo", fooRoutes);
+app.use("/translation", translationRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);

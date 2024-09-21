@@ -1,6 +1,5 @@
 const projectId = "hanzi-translation";
 require("dotenv").config();
-console.log(process.env.GOOGLE_TRANSLATE_API_KEY);
 
 const GOOGLE_APPLICATION_CREDENTIALS = process.env.GOOGLE_TRANSLATE_API_KEY;
 
