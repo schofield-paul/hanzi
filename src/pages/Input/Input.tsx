@@ -6,6 +6,7 @@ import HanziWriter from "hanzi-writer";
 //   const response = await fetch("http://localhost:3005/translation");
 //   console.log(response);
 // };
+//test
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
