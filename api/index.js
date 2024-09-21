@@ -53,7 +53,7 @@ app.post("/translation", async (req, res) => {
     const translatedText = await connectToTranslationAPI(text, targetLanguage);
     console.log("Translated Text:", translatedText);
 
-    res.status(200).json(translatedText);
+    res.status(200).json({ translation: translatedText });
   } catch (err) {
     console.error("Error:", err.message, err.stack);
     res.status(500).send("Server Error");
