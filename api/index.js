@@ -13,18 +13,15 @@ const corsOptions = {
     "http://localhost:3000",
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
+  allowedHeaders: "*",
 };
 app.use(cors(corsOptions));
 
-const { connectToDB } = require("./database.js");
-const { connectToTranslationAPI } = require("./translation.js");
-
 // Import routes
-const hanziRoutes = require("./hanziRoute");
+const hanziRoutes = require("./hanziRoutes");
 const fooRoutes = require("./translationAPI");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3005;
 
 // Use routes
 app.use("/hanzi", hanziRoutes);

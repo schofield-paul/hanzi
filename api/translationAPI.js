@@ -3,8 +3,9 @@ const express = require("express");
 const router = express.Router();
 const { connectToTranslationAPI } = require("./translation.js");
 
-router.post("/", async (req, res) => {
+router.get("/", async (req, res) => {
   const { text, targetLanguage } = req.body;
+  console.log("Foo");
 
   if (!text || !targetLanguage) {
     return res
@@ -18,7 +19,7 @@ router.post("/", async (req, res) => {
 
     res.status(200).json(translatedText);
   } catch (err) {
-    console.error("Error:", err.message);
+    console.error("Error:", err.message, err.stack);
     res.status(500).send("Server Error");
   }
 });
