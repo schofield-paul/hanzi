@@ -2,14 +2,35 @@ import style from "./Input.module.css";
 import { useRef, useState, useEffect } from "react";
 import HanziWriter from "hanzi-writer";
 
-const fetchDataTest = async () => {
-  const response = await fetch("http://localhost:3005/translation");
-  console.log(response);
-};
+// const fetchDataTest = async () => {
+//   const response = await fetch("http://localhost:3005/translation");
+//   console.log(response);
+// };
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const fetchData = async (text: string, targetLanguage: string) => {
+    console.log("fetching data");
+    try {
+      const response = await fetch(
+        "https://hanzi-app.onrender.com/translation",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text, targetLanguage }),
+        }
+      );
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   // useEffect(() => {
   //   // This will only run when the Input component is mounted
@@ -34,18 +55,32 @@ export default function Input() {
       return;
     }
 
-    const targetLanguage = "zh"; // Example: English to Mandarin, set dynamically as needed
+    const targetLanguage = "zh";
 
-    await fetchData(inputValue, targetLanguage);
+    const translation = await fetchData(inputValue, targetLanguage);
 
-    if (writerContainerRef.current) {
-      var writer = HanziWriter.create(writerContainerRef.current, "国", {
-        width: 100,
-        height: 100,
-        padding: 5,
-        showOutline: true,
+    if (translation && writerContainerRef.current) {
+      // Clear the container if it has any previous writers
+      writerContainerRef.current.innerHTML = "";
+
+      // Iterate over each character in the translation string
+      translation.split("").forEach((character: string, index: number) => {
+        // Create a unique container for each character
+        const charContainer = document.createElement("div");
+        charContainer.id = `character-container-${index}`;
+        charContainer.classList.add("character-container");
+        writerContainerRef.current!.appendChild(charContainer);
+        // Create a HanziWriter instance for each character
+        var writer = HanziWriter.create(charContainer.id, character, {
+          width: 100,
+          height: 100,
+          padding: 5,
+          showOutline: true,
+        });
+        writer.animateCharacter();
       });
-      writer.animateCharacter();
+    } else {
+      alert("Translation failed or no characters to display.");
     }
   };
 
@@ -53,29 +88,11 @@ export default function Input() {
     setInputValue(e.target.value);
   };
 
-  const fetchData = async (text: string, targetLanguage: string) => {
-    try {
-      const response = await fetch("http://localhost:3005/foo", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text, targetLanguage }),
-      });
-      const result = await response.json();
-      console.log(result);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   return (
     <>
       <div className={style.contentContainer}>
         <h1 className={style.mainText}>Input Mandarin to translate</h1>
-        <form
-        //onSubmit={handleSubmit}
-        >
+        <form onSubmit={handleSubmit}>
           <input
             className="form"
             type="text"
@@ -87,7 +104,7 @@ export default function Input() {
             Translate
           </button>
         </form>
-        <div className="character" ref={writerContainerRef} />
+        <div className={style.character} ref={writerContainerRef} />
       </div>
     </>
   );

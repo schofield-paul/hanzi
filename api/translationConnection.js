@@ -10,6 +10,7 @@ const { Translate } = require("@google-cloud/translate").v2;
 const translate = new Translate({ key: GOOGLE_APPLICATION_CREDENTIALS });
 
 const connectToTranslationAPI = async (text, target) => {
+  console.log("connectToTranslationAPI runnning");
   try {
     // The text to translate
     const [translation] = await translate.translate(text, target);
