@@ -25,6 +25,11 @@ export default function Input() {
           body: JSON.stringify({ text, targetLanguage }),
         }
       );
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Error ${response.status}: ${errorText}`);
+      }
+
       const result = await response.json();
       console.log(result);
       return result;
