@@ -9,6 +9,7 @@ const corsOptions = {
     "https://www.hanzi-app.com",
     "https://www.hanzi-app.com/",
     "http://192.168.1.95:3000",
+    "http://localhost:3000",
   ],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Content-Type,Authorization",
@@ -17,8 +18,9 @@ app.use(cors(corsOptions));
 
 const Hanzi = require("./hanziModel.js");
 const { connectToDB } = require("./database.js");
+const { connectToTranslationAPI } = require("./translationConnection.js");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3005;
 
 // Get Hanzi objects array by HSK section and level
 app.get("/hanzi", async (req, res) => {
@@ -34,6 +36,26 @@ app.get("/hanzi", async (req, res) => {
     res.status(200).json(hanziData);
   } catch (err) {
     console.error("Error:", err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+app.post("/translation", async (req, res) => {
+  const { text, targetLanguage } = req.body;
+
+  if (!text || !targetLanguage) {
+    return res
+      .status(400)
+      .json({ error: "Text and target language are required" });
+  }
+
+  try {
+    const translatedText = await connectToTranslationAPI(text, targetLanguage);
+    console.log("Translated Text:", translatedText);
+
+    res.status(200).json(translatedText);
+  } catch (err) {
+    console.error("Error:", err.message, err.stack);
     res.status(500).send("Server Error");
   }
 });

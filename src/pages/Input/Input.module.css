@@ -19,5 +19,18 @@
 }
 
 .character {
-  margin-top: 20px;
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 500px;
+  overflow-x: hidden;
+}
+
+.character-container {
+  display: inline-block;
+  max-width: 100px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
 }
