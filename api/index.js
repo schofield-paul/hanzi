@@ -21,14 +21,14 @@ const { connectToDB } = require("./database.js");
 const { connectToTranslationAPI } = require("./translationConnection.js");
 console.log("Database:", connectToDB);
 
-const port = process.env.PORT || 3005;
+const port = process.env.PORT || 3000;
 
 // Get Hanzi objects array by HSK section and level
 app.get("/hanzi", async (req, res) => {
   const { hsk_level, hsk_section } = req.query;
   try {
     await connectToDB();
-    await connectToTranslationAPI();
+    //await connectToTranslationAPI();
 
     const hanziData = await Hanzi.find({
       hsk_level: hsk_level,
