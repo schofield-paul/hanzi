@@ -13,7 +13,7 @@ export default function Homepage() {
           <h1 className={classNames("title", style.title)}>
             <span className={classNames("gradient-text", style.gradientText)}>
               {" "}
-              Learn Chinese characters with ease
+              Learn Chinese <br></br> with velocity
             </span>
           </h1>
           <h2 className={classNames("subtitle", style.subtitle)}>

@@ -1,7 +1,7 @@
 // useHanziWriter.ts
 import HanziWriter from "hanzi-writer";
 
-export const useHanziWriter = (
+export const initializeHanziWriter = (
   container: HTMLDivElement | null,
   translation: string
 ) => {
