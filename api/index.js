@@ -16,7 +16,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const Hanzi = require("./hanzi.js");
+const Hanzi = require("./hanziModel.js");
 const { connectToDB } = require("./database.js");
 const { connectToTranslationAPI } = require("./translationConnection.js");
 console.log("Database:", connectToDB);
