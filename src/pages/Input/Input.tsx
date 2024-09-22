@@ -1,7 +1,7 @@
 import style from "./Input.module.css";
 import { useRef, useState } from "react";
 import { fetchData } from "../../hooks/fetchData"; // Importing from the new api file
-import { useHanziWriter } from "../../hooks/useHanziWriter";
+import { initializeHanziWriter } from "../../hooks/initializeHanziWriter";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -25,7 +25,7 @@ export default function Input() {
       const translation = await fetchData(inputValue, targetLanguage);
 
       if (translation && writerContainerRef.current) {
-        useHanziWriter(writerContainerRef.current, translation);
+        initializeHanziWriter(writerContainerRef.current, translation);
       } else {
         alert("Translation failed or no characters to display.");
       }
