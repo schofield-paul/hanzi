@@ -8,7 +8,8 @@ export default function Input() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const containsEnglish = (input: string) => /^[a-zA-Z\s]+$/.test(input);
+  const containsEnglish = (input: string) =>
+    /^[a-zA-Z\s.,!?':;()-]+$/.test(input);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
