@@ -38,7 +38,7 @@ const CardComponent = React.forwardRef<HTMLDivElement, CardProps>(
         </div>
         <div className="button-wrapper">
           <button onClick={clickAnimate}>Animate</button>
-          <button onClick={showNextPair}>Next Pair</button>
+          <button onClick={showNextPair}>Next Set</button>
         </div>
       </div>
     );
