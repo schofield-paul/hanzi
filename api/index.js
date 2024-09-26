@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const axios = require("axios");
 
 app.use(express.json());
 
@@ -52,6 +53,20 @@ app.post("/translation", async (req, res) => {
   try {
     const translatedText = await connectToTranslationAPI(text, targetLanguage);
     console.log("Translated Text:", translatedText);
+
+    // // Calls FastAPI service to convert to Pinyin
+    // const fastApiResponse = await axios.post(
+    //   "http://127.0.0.1:8000/translation",
+    //   {
+    //     text: translatedText,
+    //     tone_numbers: true,
+    //     spaces: true,
+    //   }
+    // );
+
+    // Extract the Pinyin result from the FastAPI response
+    //onst pinyinResult = fastApiResponse.data.pinyin;
+    //console.log(pinyinResult);
 
     res.status(200).json({ translation: translatedText });
   } catch (err) {
