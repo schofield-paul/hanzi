@@ -14,7 +14,7 @@ class TranslationRequest(BaseModel):
     tone_numbers: bool = False
     spaces: bool = False
 
-@app.post("/translate")
+@app.post("/translate-to-pinyin")
 async def translate_to_pinyin(request: TranslationRequest):
     try:
         # Use the input options to perform the translation

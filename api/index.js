@@ -56,7 +56,7 @@ app.post("/translate", async (req, res) => {
 
     // Calls FastAPI service to convert to Pinyin
     const fastApiResponse = await axios.post(
-      "http://127.0.0.1:8000/translate",
+      "https://hanzi-app.onrender.com/translate-to-pinyin",
       {
         text: translatedText,
         tone_numbers: false,
