@@ -14,6 +14,10 @@ class TranslationRequest(BaseModel):
     tone_numbers: bool = False
     spaces: bool = False
 
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+
 @app.post("/translate-to-pinyin")
 async def translate_to_pinyin(request: TranslationRequest):
     try:
