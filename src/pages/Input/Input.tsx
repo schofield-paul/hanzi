@@ -24,7 +24,6 @@ export default function Input() {
 
     try {
       const translation = await fetchData(inputValue, targetLanguage);
-
       if (translation && writerContainerRef.current) {
         initializeHanziWriter(writerContainerRef.current, translation);
       } else {

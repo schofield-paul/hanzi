@@ -41,7 +41,7 @@ app.get("/hanzi", async (req, res) => {
   }
 });
 
-app.post("/translation", async (req, res) => {
+app.post("/translate", async (req, res) => {
   const { text, targetLanguage } = req.body;
 
   if (!text || !targetLanguage) {
@@ -54,21 +54,29 @@ app.post("/translation", async (req, res) => {
     const translatedText = await connectToTranslationAPI(text, targetLanguage);
     console.log("Translated Text:", translatedText);
 
-    // // Calls FastAPI service to convert to Pinyin
-    // const fastApiResponse = await axios.post(
-    //   "http://127.0.0.1:8000/translation",
-    //   {
-    //     text: translatedText,
-    //     tone_numbers: true,
-    //     spaces: true,
-    //   }
-    // );
+    // Calls FastAPI service to convert to Pinyin
+    const fastApiResponse = await axios.post(
+      "http://127.0.0.1:8000/translate",
+      {
+        text: translatedText,
+        tone_numbers: false,
+        spaces: true,
+      }
+    );
 
-    // Extract the Pinyin result from the FastAPI response
-    //onst pinyinResult = fastApiResponse.data.pinyin;
-    //console.log(pinyinResult);
+    const pinyinResult = fastApiResponse.data.pinyin;
+    const pinyinArray = pinyinResult.split(" ");
 
-    res.status(200).json({ translation: translatedText });
+    // create list of character to pinyin dictionaries  [{ character: '朋', pinyin: 'péng' }]
+    let result = [];
+    for (let i = 0; i < translatedText.length; i++) {
+      result.push({
+        character: translatedText[i],
+        pinyin: pinyinArray[i] || "",
+      });
+    }
+
+    res.status(200).json(result);
   } catch (err) {
     console.error("Error:", err.message, err.stack);
     res.status(500).send("Server Error");
