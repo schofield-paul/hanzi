@@ -49,7 +49,7 @@ export default function Input() {
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder="Enter English or Mandarin"
+          placeholder="Enter English text"
           disabled={isLoading}
         />
         <button
