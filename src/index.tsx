@@ -3,11 +3,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./layout";
 import Application from "./pages/Application/ApplicationPage";
 import Homepage from "./pages/Homepage/Homepage";
@@ -45,56 +41,30 @@ const useGoogleAnalytics = () => {
   }, [location]);
 };
 
-const GoogleAnalyticsWrapper = ({ children }) => {
+const App = () => {
   useGoogleAnalytics();
-  return children;
-};
-
-function App() {
-  const router = createBrowserRouter([
-    {
-      element: <Layout />,
-      children: [
-        {
-          path: "/",
-          element: <Homepage />,
-          errorElement: <div>404 Not Found</div>,
-        },
-        {
-          path: "/app",
-          element: <Application />,
-          errorElement: <div>404 Not Found</div>,
-        },
-        {
-          path: "/selection",
-          element: <SelectStageSection />,
-          errorElement: <div>404 Not Found</div>,
-        },
-        {
-          path: "/input",
-          element: <Input />,
-          errorElement: <div>404 Not Found</div>,
-        },
-        {
-          path: "/about",
-          element: <About />,
-          errorElement: <div>404 Not Found</div>,
-        },
-      ],
-    },
-  ]);
 
   return (
-    <GoogleAnalyticsWrapper>
-      <RouterProvider router={router} />
-    </GoogleAnalyticsWrapper>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Homepage />} />
+        <Route path="app" element={<Application />} />
+        <Route path="selection" element={<SelectStageSection />} />
+        <Route path="input" element={<Input />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<div>404 Not Found</div>} />
+      </Route>
+    </Routes>
   );
-}
+};
 
-// Render the app
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
-root.render(<App />);
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
 
 reportWebVitals();
