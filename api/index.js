@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const axios = require("axios");
 
 app.use(express.json());
-
-const axios = require("axios");
 
 const corsOptions = {
   origin: [
@@ -24,7 +23,6 @@ const { connectToTranslationAPI } = require("./translationConnection.js");
 
 const port = process.env.PORT || 3005;
 
-// Get Hanzi objects array by HSK section and level
 app.get("/hanzi", async (req, res) => {
   const { hsk_level, hsk_section } = req.query;
   try {
@@ -53,9 +51,7 @@ app.post("/translate", async (req, res) => {
 
   try {
     const translatedText = await connectToTranslationAPI(text, targetLanguage);
-    console.log("Translated Text:", translatedText);
 
-    // Calls FastAPI service to convert to Pinyin
     const fastApiResponse = await axios.post(
       "https://pinyin-service.onrender.com/translate-to-pinyin",
       {
@@ -65,21 +61,16 @@ app.post("/translate", async (req, res) => {
       }
     );
 
-    const pinyinResult = fastApiResponse.data.pinyin;
-    const pinyinArray = pinyinResult.split(" ");
+    const pinyinArray = fastApiResponse.data.pinyin.split(" ");
 
-    // create list of character to pinyin dictionaries  [{ character: '朋', pinyin: 'péng' }]
-    let result = [];
-    for (let i = 0; i < translatedText.length; i++) {
-      result.push({
-        character: translatedText[i],
-        pinyin: pinyinArray[i] || "",
-      });
-    }
+    const result = translatedText.split("").map((char, i) => ({
+      character: char,
+      pinyin: pinyinArray[i] || "",
+    }));
 
     res.status(200).json(result);
   } catch (err) {
-    console.error("Error:", err.message, err.stack);
+    console.error("Error:", err.message);
     res.status(500).send("Server Error");
   }
 });
