@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const axios = require("axios");
 
 app.use(express.json());
 
@@ -54,9 +53,10 @@ app.post("/translate", async (req, res) => {
     const translatedText = await connectToTranslationAPI(text, targetLanguage);
     console.log("Translated Text:", translatedText);
 
+<<<<<<< HEAD
     // Calls FastAPI service to convert to Pinyin
     const fastApiResponse = await axios.post(
-      "https://hanzi-app.onrender.com/translate-to-pinyin",
+      "https://pinyin-service.onrender.com/translate-to-pinyin",
       {
         text: translatedText,
         tone_numbers: false,
@@ -77,6 +77,9 @@ app.post("/translate", async (req, res) => {
     }
 
     res.status(200).json(result);
+=======
+    res.status(200).json({ translation: translatedText });
+>>>>>>> parent of 0376477 (stand up Fast API service. TODO update BE to pass translated string and pinyin)
   } catch (err) {
     console.error("Error:", err.message, err.stack);
     res.status(500).send("Server Error");
