@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -20,30 +19,38 @@ const useGoogleAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Load Google Analytics script
-    const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=G-W86TED8WXD`;
-    script.async = true;
-    document.head.appendChild(script);
+    if (!window.gtag) {
+      // Load Google Analytics script
+      const script = document.createElement("script");
+      script.src = `https://www.googletagmanager.com/gtag/js?id=G-W86TED8WXD`;
+      script.async = true;
+      document.head.appendChild(script);
 
-    // Initialize Google Analytics
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
+      // Initialize Google Analytics
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = gtag; // Define gtag globally
+      gtag("js", new Date());
+      gtag("config", "G-W86TED8WXD");
     }
-    gtag("js", new Date());
-    gtag("config", "G-W86TED8WXD");
 
     // Track pageview on route change
-    gtag("config", "G-W86TED8WXD", {
-      page_path: location.pathname,
-    });
+    if (window.gtag) {
+      window.gtag("config", "G-W86TED8WXD", {
+        page_path: location.pathname,
+      });
+    }
   }, [location]);
 };
 
-function App() {
+const GoogleAnalyticsWrapper = ({ children }) => {
   useGoogleAnalytics();
+  return children;
+};
 
+function App() {
   const router = createBrowserRouter([
     {
       element: <Layout />,
@@ -77,9 +84,14 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <GoogleAnalyticsWrapper>
+      <RouterProvider router={router} />
+    </GoogleAnalyticsWrapper>
+  );
 }
 
+// Render the app
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
