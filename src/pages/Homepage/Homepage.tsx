@@ -20,7 +20,7 @@ export default function Homepage() {
             Hanzi is a tool for learning Chinese characters through stroke order
             writing
           </h2>
-          <Link to="/selection">
+          <Link to="/input">
             <button className={classNames("button", style.button)}>
               Get Started
             </button>
