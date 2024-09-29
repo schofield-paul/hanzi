@@ -31,8 +31,8 @@ export const initializeHanziWriter = (
       container.appendChild(charWrapper);
 
       const writer = HanziWriter.create(charContainer.id, item.character, {
-        width: 100,
-        height: 100,
+        width: 130,
+        height: 130,
         padding: 5,
         showOutline: true,
       });
