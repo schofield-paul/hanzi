@@ -27,7 +27,6 @@ h1 {
   font-size: 4.5rem;
   margin-bottom: 0.5rem;
   font-size: 2rem;
-  animation: moveUp 0.9s ease-out forwards;
 }
 
 .subtitle {
@@ -38,7 +37,6 @@ h1 {
   margin-bottom: 30px;
   text-align: center;
   margin: 17px 40px 30px 40px;
-  animation: moveUp 0.9s ease-out forwards;
 }
 
 .button {
