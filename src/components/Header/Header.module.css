@@ -1,39 +1,39 @@
 .app {
-  background-color: #0f0f0f;
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  background-color: black;
   display: flex;
   width: 100%;
   align-items: center;
-  border-bottom: #d5dadb 1px solid;
+  border-bottom: #171717 1px solid;
   justify-content: space-between;
+  height: 50px;
 }
 
 .headerContainer1 {
   display: flex;
+  justify-content: space-around;
   width: 100%;
-}
-
-.headerContainer2 {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
 }
 
 .h1 {
-  font-size: 2.5rem;
-  color: #d5dadb;
-  margin: 10px 10px 5px 20px;
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  margin: 10px 10px 10px 60px;
 }
 
 .h2 {
-  font-size: 1.5rem;
-  color: white;
-  margin: 20px 0px 0px 15px;
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  margin: 13px 10px 5px 10px;
 }
 
-.h2b {
-  font-size: 1.5rem;
-  color: white;
-  margin: 29px 20px 20px 15px;
+.navLinks {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-right: 80px;
 }
 
 .link {
@@ -57,4 +57,8 @@
   font-size: 1.2rem;
   margin: 0px 8px;
   cursor: pointer;
+}
+
+.p {
+  color: #0f0f0f;
 }

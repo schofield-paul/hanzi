@@ -10,8 +10,8 @@ export default function Homepage() {
     <>
       <div className={style.wrapper}>
         <div className={style.app}>
-          <h1 className={classNames("title", style.title)}>
-            <span className={classNames("gradient-text", style.gradientText)}>
+          <h1 className={classNames(style.title)}>
+            <span className={classNames(style.gradientText)}>
               {" "}
               Learn Chinese characters with ease
             </span>

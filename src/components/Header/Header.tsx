@@ -9,23 +9,19 @@ export default function Header() {
         <Link to="/" className={style.link}>
           <h2 className={style.h1}>Hanzi</h2>
         </Link>
-        <Link to="/input" className={style.link}>
-          <h2 className={style.h2}>Translate</h2>
-        </Link>
-        <Link to="/selection" className={style.link}>
-          <h2 className={style.h2}>Practice</h2>
-        </Link>
-      </div>
-      <div className={style.headerContainer2}>
-        <Link to="/about" className={style.link}>
-          <h2 className={style.h2b}>About</h2>
-        </Link>
-        {/*<h2 className={style.h2}>Input </h2>*/}
-        {/*<h2 className={style.h2}>Sentences</h2>*/}
-      </div>
-      <div className={style.buttonContainer}>
-        {/* <button className={style.button}>Sign In</button> */}
-        {/*<button className={style.button}>Sign Up</button>*/}
+        <div className={style.navLinks}>
+          <Link to="/input" className={style.link}>
+            <h2 className={style.h2}>Translate</h2>
+          </Link>
+          <Link to="/selection" className={style.link}>
+            <h2 className={style.h2}>Practice</h2>
+          </Link>
+
+          <Link to="/about" className={style.link}>
+            <h2 className={style.h2}>About</h2>
+          </Link>
+        </div>
+        <p className={style.p}>Hello</p>
       </div>
     </div>
   );
