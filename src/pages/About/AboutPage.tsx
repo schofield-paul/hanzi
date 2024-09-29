@@ -17,18 +17,19 @@ export default function About() {
       <div className={style.app}>
         <h1 className={style.h1}>About</h1>
         <p className={style.paragraph}>
-          After many attempts to stich together online conversion tools, Anki
-          decks, translation sites, and GPT generated content—I realized it was
-          time to build the tool I needed.
+          After attempts to stich together Anki decks, conversion tools, and
+          online translation sites—I realized it was time to build the tool I
+          needed.
         </p>
         <p className={style.paragraph}>
-          Hanzi is an attempt to simplify the task of learning the writing
-          system of chinese characters. It uses SVG animated character in proper
-          stroke order using some of the most common words.
+          Hanzi is an attempt to simplify the task of learning the Chinese
+          writing system. The unique feature of this website (and the writing
+          system), is the relevance of stroke order. Hanzi uses SVG character
+          animation in proper stroke order backed by cutting edge translation.
         </p>
         <p className={style.paragraph}>
           Beginners can start on HSK 1 and work their way up through HSK 3
-          vocabulary.&nbsp; 快乐学习！
+          vocabulary or input English text directly.&nbsp; 快乐学习！
         </p>
         <p className={style.paragraph}></p>
         <p className={style.paragraph}></p>
