@@ -1,17 +1,6 @@
 import style from "./AboutPage.module.css";
-import { useEffect } from "react";
-
-const fetchDataTest = async () => {
-  const response = await fetch("http://localhost:3005/hanzi");
-  console.log(response);
-};
 
 export default function About() {
-  // useEffect(() => {
-  //   // This will only run when the Input component is mounted
-  //   fetchDataTest();
-  // }, []);
-
   return (
     <>
       <div className={style.app}>
