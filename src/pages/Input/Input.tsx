@@ -9,7 +9,7 @@ export default function Input() {
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
 
   const containsEnglish = (input: string) =>
-    /^[a-zA-Z\s.,!?':;()-]+$/.test(input);
+    /^[a-zA-Z\s.,!?':;()\u2019-]+$/.test(input);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
