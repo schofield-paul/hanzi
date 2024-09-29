@@ -22,7 +22,6 @@
 .englishText {
   color: #ffffff;
   font-size: 22px;
-  font-weight: bold;
   text-align: center;
   margin: 0.8rem 0;
 }
@@ -48,7 +47,7 @@ p {
   margin: 0.5rem 0;
 }
 
-button {
+.button {
   display: inline-block;
   padding: 12px 24px;
   font-size: 16px;
@@ -65,13 +64,13 @@ button {
     transform 0.2s ease;
 }
 
-button:hover {
+.button:hover {
   background-color: #958162;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
 }
 
-button:active {
+.button:active {
   background-color: #945231;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   transform: translateY(1px);

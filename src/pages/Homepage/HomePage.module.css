@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   color: black;
-  font-family: "Roboto", sans-serif;
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
   font-size: calc(10px + 2vmin);
   min-height: 100vh;
   text-align: left;
@@ -13,9 +13,14 @@
 
 h1 {
   color: white;
-  font-size: 3rem;
-  margin-left: 1rem;
-  padding-top: 1.3rem;
+  font-size: 56px;
+  padding-top: 4px;
+  font-weight: 400;
+}
+
+.centerText {
+  display: block;
+  text-align: center;
 }
 
 .title {
@@ -25,55 +30,84 @@ h1 {
   animation: moveUp 0.9s ease-out forwards;
 }
 
-.gradientText {
-  background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline;
-  position: relative;
-}
-
 .subtitle {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #ddd4d4;
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
   max-width: 500px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   text-align: center;
-  margin: 25px 40px 40px 40px;
+  margin: 17px 40px 30px 40px;
   animation: moveUp 0.9s ease-out forwards;
 }
 
 .button {
-  background: linear-gradient(45deg, #ff6e7f, #bfe9ff);
-  color: white;
+  background: #ffffff;
+  color: black;
   border: none;
-  padding: 15px 25px;
-  font-family: "Roboto", sans-serif;
+  padding: 12px 25px;
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   border-radius: 25px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-top: 0.5rem;
   margin-bottom: 3.5rem;
 }
 
-.hero {
-  display: flex;
-  flex-direction: column;
-  color: black;
-  text-align: center;
+.learnMore {
+  background: black;
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 25px;
+  margin-top: 0.5rem;
+  margin-bottom: 3.5rem;
   position: relative;
-  width: 100%;
-  height: 100%;
+  transition: all 0.3s ease;
 }
 
-.heroImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  height: 1000px;
+.learnMore::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 0.5px;
+  bottom: 8px;
+  left: 15%;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.learnMore:hover::after {
+  opacity: 1;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.preText {
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  color: ffffff;
+  font-size: 16px;
+  padding-top: 115px;
+  font-weight: 400;
+}
+
+.logoReflection {
+  font-family: "Microsoft Sans Serif", Arial, sans-serif;
+  color: ffffff;
+  font-size: 14px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+  margin-left: 70px;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 767px) {
@@ -96,7 +130,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     color: black;
-    font-family: "Roboto", sans-serif;
+    font-family: "Microsoft Sans Serif", Arial, sans-serif;
     font-size: calc(10px + 2vmin);
     min-height: 100vh;
     text-align: left;
@@ -105,19 +139,8 @@ h1 {
   }
 }
 
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #ff6e7f;
-}
-
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .title {
-    margin-top: 1.5rem;
     font-size: 2.5rem;
     max-width: 800px;
   }
@@ -131,9 +154,8 @@ h1 {
 
 @media screen and (min-width: 1024px) {
   .title {
-    margin-top: 2rem;
     font-size: 3rem;
-    max-width: 500px;
+    max-width: 800px;
     text-align: center;
   }
 
