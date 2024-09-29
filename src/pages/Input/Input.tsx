@@ -34,6 +34,7 @@ export default function Input() {
       alert(error);
     } finally {
       setIsLoading(false);
+      setInputValue("");
     }
   };
 
@@ -46,6 +47,12 @@ export default function Input() {
       inputRef.current.focus();
     }
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isLoading]);
 
   return (
     <div className={style.contentContainer}>
