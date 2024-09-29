@@ -15,7 +15,19 @@
 
 .form {
   padding: 10px;
-  size: 16px;
+  font-size: 18px;
+  width: 300px;
+  border-radius: 25px;
+  border: 2px solid #ddd4d4;
+  background-color: #1a1a1a;
+  color: #ddd4d4;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.form:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
 }
 
 .character {

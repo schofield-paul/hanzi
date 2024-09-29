@@ -45,7 +45,7 @@ export default function Input() {
       <h1 className={style.mainText}>Input Text to Translate</h1>
       <form onSubmit={handleSubmit}>
         <input
-          className="form"
+          className={style.form}
           type="text"
           value={inputValue}
           onChange={handleInputChange}
