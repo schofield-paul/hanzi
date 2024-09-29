@@ -1,5 +1,5 @@
 import style from "./Input.module.css";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { fetchData } from "../../hooks/fetchData"; // Importing from the new api file
 import { initializeHanziWriter } from "../../hooks/initializeHanziWriter";
 
@@ -7,6 +7,7 @@ export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const containsEnglish = (input: string) =>
     /^[a-zA-Z\s.,!?':;()\u2019-]+$/.test(input);
@@ -40,11 +41,18 @@ export default function Input() {
     setInputValue(e.target.value);
   };
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <div className={style.contentContainer}>
       <h1 className={style.mainText}>Input Text to Translate</h1>
       <form onSubmit={handleSubmit}>
         <input
+          ref={inputRef}
           className={style.form}
           type="text"
           value={inputValue}
@@ -54,7 +62,9 @@ export default function Input() {
         />
         <button
           type="submit"
-          style={{ marginLeft: "10px", padding: "10px" }}
+          className={`${style.submitButton} ${
+            inputValue.trim() ? style.active : ""
+          }`}
           disabled={isLoading}
         >
           {isLoading ? "Translating..." : "Translate"}
