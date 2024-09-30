@@ -49,13 +49,16 @@
 
 .submitButton {
   margin-left: 10px;
-  padding: 10px;
+  padding: 0 20px;
+  height: 44px; /* Match the height of the input field (40px + 2px border on top and bottom) */
   background-color: black;
   color: #ddd4d4;
-  border: 2px solid #ddd4d4;
+  border: 1px solid #ddd4d4;
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 25px;
+  font-size: 16px;
+  line-height: 40px;
 }
 
 .submitButton:hover {

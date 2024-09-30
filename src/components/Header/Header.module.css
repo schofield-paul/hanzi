@@ -62,3 +62,32 @@
 .p {
   color: #0f0f0f;
 }
+
+@media screen and (max-width: 767px) {
+  .h1 {
+    font-size: 16px;
+  }
+
+  .h2 {
+    font-size: 12px;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+
+  .navLinks {
+    margin-right: 0;
+    justify-content: space-around;
+  }
+
+  .link {
+    margin: 0 5px;
+  }
+
+  .buttonContainer {
+    justify-content: center;
+    margin: 5px;
+  }
+}
