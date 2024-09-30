@@ -21,7 +21,6 @@ export default function Header() {
             <h2 className={style.h2}>About</h2>
           </Link>
         </div>
-        <p className={style.p}>Hello</p>
       </div>
     </div>
   );

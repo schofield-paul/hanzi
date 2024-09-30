@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import style from "./HomePage.module.css";
-import heroImage from "../../assets/hero.png";
 import Quote from "../../components/Quote/Quote";
 import InfoCard from "../../components/InfoCards/InfoCard";
 import { Link } from "react-router-dom";
