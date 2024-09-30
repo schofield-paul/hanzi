@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import style from "./HomePage.module.css";
 import Quote from "../../components/Quote/Quote";
-import InfoCard from "../../components/InfoCards/InfoCard";
 import { Link } from "react-router-dom";
 
 export default function Homepage() {
@@ -17,9 +16,8 @@ export default function Homepage() {
             <span className={style.centerText}>Achieve fluency.</span>
           </h1>
           <h2 className={classNames("subtitle", style.subtitle)}>
-            Simple to start. Fun to learn. Dive into Chinese characters
-            <br />
-            and fluency with interactive animations and words.
+            Simple to start. Fun to learn. Dive into Chinese characters and
+            fluency with interactive animations and words.
           </h2>
           <div className={style.buttons}>
             <Link to="/input">
@@ -31,7 +29,6 @@ export default function Homepage() {
           </div>
         </div>
         <Quote />
-        <InfoCard />
       </div>
     </>
   );
