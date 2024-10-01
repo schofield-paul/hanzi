@@ -149,6 +149,10 @@ h1 {
     margin-left: 0px;
     margin-right: 0px;
   }
+
+  .subtitle {
+    font-size: 16px;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
