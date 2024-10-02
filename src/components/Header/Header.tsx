@@ -13,10 +13,6 @@ export default function Header() {
           <Link to="/input" className={style.link}>
             <h2 className={style.h2}>Translate</h2>
           </Link>
-          <Link to="/selection" className={style.link}>
-            <h2 className={style.h2}>Practice</h2>
-          </Link>
-
           <Link to="/about" className={style.link}>
             <h2 className={style.h2}>About</h2>
           </Link>

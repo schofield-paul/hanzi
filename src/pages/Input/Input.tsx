@@ -34,7 +34,6 @@ export default function Input() {
       alert(error);
     } finally {
       setIsLoading(false);
-      setInputValue("");
     }
   };
 

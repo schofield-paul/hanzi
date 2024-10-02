@@ -12,6 +12,8 @@ export const initializeHanziWriter = (
   if (container) {
     container.innerHTML = "";
 
+    const writers: HanziWriter[] = [];
+
     // Iterate over each character and pinyin pair in the translation array
     translation.forEach((item: TranslationObject, index: number) => {
       // Create a wrapper div to contain both pinyin and character
@@ -25,7 +27,6 @@ export const initializeHanziWriter = (
       const charContainer = document.createElement("div");
       charContainer.id = `character-container-${index}`;
 
-      // Append pinyin and character container to the wrapper
       charWrapper.appendChild(pinyinElement);
       charWrapper.appendChild(charContainer);
       container.appendChild(charWrapper);
@@ -37,7 +38,19 @@ export const initializeHanziWriter = (
         showOutline: true,
       });
 
-      writer.animateCharacter();
+      writers.push(writer);
     });
+
+    const animateSequentially = (index: number) => {
+      if (index < writers.length) {
+        writers[index].animateCharacter({
+          onComplete: () => {
+            animateSequentially(index + 1);
+          },
+        });
+      }
+    };
+
+    animateSequentially(0);
   }
 };
