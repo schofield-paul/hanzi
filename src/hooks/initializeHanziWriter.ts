@@ -36,9 +36,14 @@ export const initializeHanziWriter = (
         height: 130,
         padding: 5,
         showOutline: true,
+        strokeAnimationSpeed: 2,
       });
 
       writers.push(writer);
+
+      charContainer.addEventListener("click", () => {
+        writer.animateCharacter();
+      });
     });
 
     const animateSequentially = (index: number) => {
