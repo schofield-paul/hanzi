@@ -77,3 +77,12 @@
   background-color: #3e82cf;
   border-color: #3e82cf;
 }
+
+.hoverable-character {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.hoverable-character:hover {
+  transform: scale(1.05);
+}

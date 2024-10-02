@@ -1,4 +1,5 @@
 import HanziWriter from "hanzi-writer";
+import style from "../pages/Input/Input.module.css";
 
 interface TranslationObject {
   character: string;
@@ -26,6 +27,7 @@ export const initializeHanziWriter = (
       // Create container for the Hanzi character
       const charContainer = document.createElement("div");
       charContainer.id = `character-container-${index}`;
+      charContainer.classList.add(style["hoverable-character"]);
 
       charWrapper.appendChild(pinyinElement);
       charWrapper.appendChild(charContainer);
