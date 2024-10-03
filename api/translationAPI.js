@@ -5,7 +5,6 @@ const { connectToTranslationAPI } = require("./translationConnection.js");
 
 router.get("/", async (req, res) => {
   const { text, targetLanguage } = req.body;
-  console.log("Foo");
 
   if (!text || !targetLanguage) {
     return res

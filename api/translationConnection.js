@@ -3,12 +3,11 @@ require("dotenv").config();
 
 const GOOGLE_APPLICATION_CREDENTIALS = process.env.GOOGLE_TRANSLATE_API_KEY;
 
-// Imports the Google Cloud client library
 const { Translate } = require("@google-cloud/translate").v2;
 
 const preprocessTranslation = (translation) => {
-  // Regular expression to match Chinese characters (Mandarin)
-  return translation.replace(/[^\u4E00-\u9FFF]+/g, ""); // Keeps only Mandarin characters
+  // Keeps only Mandarin characters
+  return translation.replace(/[^\u4E00-\u9FFF]+/g, "");
 };
 
 // Instantiates a client using the API key

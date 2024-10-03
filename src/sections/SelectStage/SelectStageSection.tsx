@@ -1,5 +1,4 @@
-import React, { useState, Suspense } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import classNames from "classnames";
 import style from "./SelectionPage.module.css";
 import useFetchData from "../../hooks/useFetchLevel";
