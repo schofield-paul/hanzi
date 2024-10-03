@@ -16,10 +16,7 @@ export default function About() {
           system), is the relevance of stroke order. Hanzi uses SVG character
           animation in proper stroke order backed by cutting edge translation.
         </p>
-        <p className={style.paragraph}>
-          Beginners can start on HSK 1 and work their way up through HSK 3
-          vocabulary or input English text directly.&nbsp; 快乐学习！
-        </p>
+        <p className={style.paragraph}>快乐学习！</p>
         <p className={style.paragraph}></p>
         <p className={style.paragraph}></p>
       </div>
