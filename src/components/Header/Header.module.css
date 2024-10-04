@@ -64,27 +64,31 @@
 }
 
 @media screen and (max-width: 767px) {
+  .headerContainer1 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navLinks {
+    justify-content: flex-end;
+    width: auto;
+  }
+
   .h1 {
     font-size: 16px;
-    margin: 10px 10px 10px 10px;
+    align-items: flex-start;
+    margin-left: 15px;
   }
 
   .h2 {
     font-size: 12px;
   }
 
-  .button {
-    font-size: 0.9rem;
-    padding: 8px 15px;
-  }
-
   .navLinks {
     margin-right: 0;
     justify-content: space-around;
-  }
-
-  .link {
-    margin: 0 5px;
+    margin-right: 10px;
   }
 
   .buttonContainer {
