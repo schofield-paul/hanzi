@@ -1,98 +1,109 @@
 .app {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
   background-color: black;
-  display: flex;
   width: 100%;
-  align-items: center;
   border-bottom: #171717 1px solid;
-  justify-content: space-between;
   height: 50px;
 }
 
 .headerContainer1 {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 60px;
 }
 
 .h1 {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
   font-size: 18px;
   color: #ffffff;
-  margin: 10px 10px 10px 60px;
+  margin: 0;
 }
 
 .h2 {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
   font-size: 14px;
   color: #ffffff;
-  margin: 13px 10px 5px 10px;
+  margin: 0;
+}
+
+.menuContainer {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin-right: 65px;
 }
 
 .navLinks {
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-right: 140px;
+  align-items: center;
 }
 
 .link {
   text-decoration: none;
   color: inherit;
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
-.buttonContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 10px;
-}
-
-.button {
-  background-color: black;
-  border: 2px solid white;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  margin: 0px 8px;
-  cursor: pointer;
-}
-
-.p {
-  color: #0f0f0f;
+.hamburger {
+  display: none;
 }
 
 @media screen and (max-width: 767px) {
   .headerContainer1 {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .navLinks {
-    justify-content: flex-end;
-    width: auto;
+    padding: 0 15px;
   }
 
   .h1 {
     font-size: 16px;
-    align-items: flex-start;
-    margin-left: 15px;
+  }
+
+  .menuContainer {
+    justify-content: flex-end;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 2;
+  }
+
+  .hamburger span {
+    height: 2px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
+    display: block;
+  }
+  .navLinks {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    background-color: black;
+    border: 1px solid white;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .navLinks.open {
+    opacity: 1;
+    visibility: visible;
   }
 
   .h2 {
-    font-size: 12px;
+    font-size: 16px;
+    margin: 15px 0;
   }
 
-  .navLinks {
-    margin-right: 0;
-    justify-content: space-around;
-    margin-right: 10px;
-  }
-
-  .buttonContainer {
-    justify-content: center;
-    margin: 5px;
+  .link {
+    margin: 10px 0;
   }
 }
