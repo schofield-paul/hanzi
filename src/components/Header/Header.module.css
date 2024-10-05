@@ -62,6 +62,7 @@
 
   .menuContainer {
     justify-content: flex-end;
+    margin-right: 0;
   }
 
   .hamburger {
