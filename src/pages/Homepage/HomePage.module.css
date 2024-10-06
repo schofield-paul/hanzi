@@ -86,7 +86,7 @@ h1 {
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 110px;
 }
 
 .preText {
@@ -106,6 +106,63 @@ h1 {
   justify-content: start;
   margin-left: 70px;
   font-weight: 400;
+}
+
+.carouselContainer {
+  display: flex;
+  gap: 0px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: max-content;
+  animation: moveCards 600s linear infinite;
+  cursor: pointer;
+}
+
+.carouselContainerReverse {
+  display: flex;
+  gap: 0px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: max-content;
+  animation: moveCardsReverse 600s linear infinite;
+  cursor: pointer;
+}
+
+.carouselWrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.carouselContainer:hover,
+.carouselContainerReverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes moveCards {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.33%));
+  }
+}
+
+@keyframes moveCardsOffset {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.33%));
+  }
+}
+
+@keyframes moveCardsReverse {
+  0% {
+    transform: translateX(calc(-33.33%));
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -141,7 +198,7 @@ h1 {
     justify-content: center;
     width: 100%;
     max-width: 100%;
-    background-color: black;
+    background-color: bluc;
   }
 
   .logoReflection {
@@ -187,34 +244,7 @@ h1 {
     padding: 0rem;
   }
 
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    background-color: black;
-  }
-
-  .heroImage {
-    width: 1000px;
-    height: 1000px;
-    margin-bottom: 5rem;
-  }
-
   .wrapper {
     min-height: 100vh;
-  }
-}
-
-@keyframes moveUp {
-  from {
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
