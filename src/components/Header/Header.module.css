@@ -97,6 +97,7 @@
   .navLinks.open {
     opacity: 1;
     visibility: visible;
+    display: flex;
   }
 
   .h2 {
@@ -106,5 +107,9 @@
 
   .link {
     margin: 10px 0;
+  }
+
+  .navLinks {
+    display: none;
   }
 }
