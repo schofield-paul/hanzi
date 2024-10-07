@@ -10,7 +10,7 @@ const GoogleSignInButton: React.FC<GoogleSignInButtonProps> = ({ onLogin }) => {
     const token = response.credential;
     if (token) {
       localStorage.setItem("token", token);
-      console.log("Login Success:", token);
+      console.log("Login Success:");
       onLogin();
     }
   };
