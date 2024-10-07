@@ -101,7 +101,7 @@ h1 {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
   color: ffffff;
   font-size: 14px;
-  margin-top: 10px;
+  margin-top: 60px;
   display: flex;
   justify-content: start;
   margin-left: 70px;
@@ -139,15 +139,6 @@ h1 {
 }
 
 @keyframes moveCards {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-33.33%));
-  }
-}
-
-@keyframes moveCardsOffset {
   0% {
     transform: translateX(0);
   }

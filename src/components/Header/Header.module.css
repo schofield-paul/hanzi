@@ -1,9 +1,14 @@
 .app {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
   border-bottom: #171717 1px solid;
   height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1000;
 }
 
 .headerContainer1 {
@@ -39,6 +44,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  margin-bottom: 50px;
 }
 
 .link {

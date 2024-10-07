@@ -6,23 +6,6 @@ import CarouselCard from "../../components/CarouselCard/CarouselCard";
 
 const cardData = [
   {
-    title: "Card 1",
-    content: "Where are the best local cuisines?",
-  },
-  {
-    title: "Card 2",
-    content: "Hello, my name is",
-  },
-  {
-    title: "Card 3",
-    content:
-      "This dish looks amazing! Can you tell me what ingredients are in it?",
-  },
-  {
-    title: "Card 4",
-    content: "Nice to meet you. Where is the best tourist attraction?",
-  },
-  {
     title: "Card 5",
     content: "What do you do for work?",
   },
@@ -31,12 +14,30 @@ const cardData = [
     content: "Do you speak English?",
   },
   {
+    title: "Card 8",
+    content: "How do I get to the subway station?",
+  },
+  {
+    title: "Card 1",
+    content: "Where are the best local cuisines?",
+  },
+  {
+    title: "Card 3",
+    content:
+      "This dish looks amazing! Can you tell me what ingredients are in it?",
+  },
+
+  {
+    title: "Card 2",
+    content: "Hello, my name is",
+  },
+  {
     title: "Card 7",
     content: "How are you? ",
   },
   {
-    title: "Card 8",
-    content: "How do I get to the subway station?",
+    title: "Card 4",
+    content: "Nice to meet you. Where is the best tourist attraction?",
   },
 ];
 
