@@ -11,6 +11,7 @@ body {
   min-height: 100vh;
   width: 100vw;
   background-color: black;
+  margin-top: 50px;
   padding-left: 60px;
   padding-right: 60px;
   max-width: 60%;
