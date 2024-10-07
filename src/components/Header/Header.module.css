@@ -43,9 +43,10 @@
 
 .navLinks {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  position: fixed;
+  margin-right: 5px;
+  margin-top: 14px;
 }
 
 .link {
@@ -94,8 +95,6 @@
     width: 200px;
     background-color: black;
     border: 1px solid white;
-    flex-direction: column;
-    align-items: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;

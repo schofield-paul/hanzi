@@ -6,6 +6,8 @@ import Quote from "../../components/Quote/Quote";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
 import GoogleSignInButton from "../../components/GoogleSignIn/GoogleSignIn";
 import { cardData, cardData2, cardData3 } from "../../data/cardData";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import About from "../About/AboutPage";
 
 export default function Homepage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,7 +57,10 @@ export default function Homepage() {
               <button className={style.button}>Get Started</button>
             </Link>
             <Link to="/about">
-              <button className={style.learnMore}>Learn More →</button>
+              <button className={style.learnMore}>
+                <span>Learn More</span>{" "}
+                <ChevronRightIcon className={style.iconAdjust} />
+              </button>
             </Link>
           </div>
           {renderCarousel(repeatedCardData, style.carouselContainer)}
@@ -77,6 +82,7 @@ export default function Homepage() {
             </button>
           )}
         </div>
+        <About />
         <Quote />
       </div>
     </>

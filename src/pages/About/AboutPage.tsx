@@ -4,7 +4,7 @@ export default function About() {
   return (
     <>
       <div className={style.app}>
-        <h1 className={style.h1}>About</h1>
+        <h1 className={style.h1}>Why Hanzi?</h1>
         <p className={style.paragraph}>
           After attempts to stich together Anki decks, conversion tools, and
           online translation sites—I realized it was time to build the tool I
@@ -16,9 +16,7 @@ export default function About() {
           system), is the relevance of stroke order. Hanzi uses SVG character
           animation in proper stroke order backed by cutting edge translation.
         </p>
-        <p className={style.paragraph}>快乐学习！</p>
-        <p className={style.paragraph}></p>
-        <p className={style.paragraph}></p>
+        <p className={`${style.paragraph} ${style.centered}`}>快乐学习！</p>
       </div>
     </>
   );

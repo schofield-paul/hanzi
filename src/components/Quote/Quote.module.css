@@ -12,9 +12,10 @@
 
 .quoteText {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 200;
   color: #ffffff;
-  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  margin: 0 0 50px 0;
   max-width: 60%;
 }
