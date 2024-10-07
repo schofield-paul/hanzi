@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import Layout from "./layout";
 import Application from "./pages/Application/ApplicationPage";
 import Homepage from "./pages/Homepage/Homepage";
@@ -62,9 +63,11 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <GoogleOAuthProvider clientId="969179813000-f071bo3gnletmrcmmeovaa6lmeif0fdp.apps.googleusercontent.com">
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </GoogleOAuthProvider>
 );
 
 reportWebVitals();

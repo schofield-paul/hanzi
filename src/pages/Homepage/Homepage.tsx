@@ -3,6 +3,7 @@ import style from "./HomePage.module.css";
 import Quote from "../../components/Quote/Quote";
 import { Link } from "react-router-dom";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
+import GoogleSignInButton from "../../components/GoogleSignIn/GoogleSignIn";
 
 const cardData = [
   {
@@ -139,6 +140,7 @@ export default function Homepage() {
               <button className={style.learnMore}>Learn More →</button>
             </Link>
           </div>
+
           <div className={style.carouselWrapper}>
             <div className={style.carouselContainer}>
               {repeatedCardData.map((card, index) => (
@@ -172,7 +174,11 @@ export default function Homepage() {
               ))}
             </div>
           </div>
+          <div className={style.signInButton}>
+            <GoogleSignInButton />
+          </div>
         </div>
+
         <Quote />
       </div>
     </>

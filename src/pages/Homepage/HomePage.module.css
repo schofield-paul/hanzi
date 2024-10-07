@@ -138,6 +138,13 @@ h1 {
   animation-play-state: paused;
 }
 
+.signInButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
 @keyframes moveCards {
   0% {
     transform: translateX(0);
