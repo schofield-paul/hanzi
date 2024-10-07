@@ -4,6 +4,7 @@ import Quote from "../../components/Quote/Quote";
 import { Link } from "react-router-dom";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
 import GoogleSignInButton from "../../components/GoogleSignIn/GoogleSignIn";
+import { useState, useEffect } from "react";
 
 const cardData = [
   {
@@ -113,6 +114,24 @@ const cardData3 = [
 ];
 
 export default function Homepage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+  };
+
   const repeatedCardData = Array(30).fill(cardData).flat();
   const repeatedCardData2 = Array(30).fill(cardData2).flat();
   const repeatedCardData3 = Array(30).fill(cardData3).flat();
@@ -174,11 +193,22 @@ export default function Homepage() {
               ))}
             </div>
           </div>
-          <div className={style.signInButton}>
-            <GoogleSignInButton />
-          </div>
+          {!isLoggedIn && (
+            <div className={style.signInButton}>
+              <GoogleSignInButton onLogin={() => setIsLoggedIn(true)} />
+            </div>
+          )}
+          {isLoggedIn && (
+            <button
+              onClick={() => {
+                localStorage.removeItem("token");
+                setIsLoggedIn(false);
+              }}
+            >
+              Logout
+            </button>
+          )}
         </div>
-
         <Quote />
       </div>
     </>
