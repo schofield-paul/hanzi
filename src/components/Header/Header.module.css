@@ -1,6 +1,7 @@
 .app {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
   width: 100%;
   border-bottom: #171717 1px solid;
   height: 50px;
