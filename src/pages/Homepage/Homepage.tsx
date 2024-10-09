@@ -4,19 +4,11 @@ import classNames from "classnames";
 import style from "./HomePage.module.css";
 import Quote from "../../components/Quote/Quote";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
-import GoogleSignInButton from "../../components/GoogleSignIn/GoogleSignIn";
 import { cardData, cardData2, cardData3 } from "../../data/cardData";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import About from "../About/AboutPage";
 
 export default function Homepage() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
-
   function renderCarousel(data: typeof cardData, containerClass: string) {
     return (
       <div className={style.carouselWrapper}>
@@ -66,21 +58,6 @@ export default function Homepage() {
           {renderCarousel(repeatedCardData, style.carouselContainer)}
           {renderCarousel(repeatedCardData2, style.carouselContainerReverse)}
           {renderCarousel(repeatedCardData3, style.carouselContainer)}
-          {!isLoggedIn && (
-            <div className={style.signInButton}>
-              <GoogleSignInButton onLogin={() => setIsLoggedIn(true)} />
-            </div>
-          )}
-          {isLoggedIn && (
-            <button
-              onClick={() => {
-                localStorage.removeItem("token");
-                setIsLoggedIn(false);
-              }}
-            >
-              Logout
-            </button>
-          )}
         </div>
         <About />
         <Quote />

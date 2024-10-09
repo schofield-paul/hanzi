@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const axios = require("axios");
+const jwt = require("jsonwebtoken");
 
 app.use(express.json());
 
@@ -20,8 +21,26 @@ app.use(cors(corsOptions));
 const Hanzi = require("./hanziModel.js");
 const { connectToDB } = require("./database.js");
 const { connectToTranslationAPI } = require("./translationConnection.js");
+const UserPrompts = require("./userPromptsModel");
 
 const port = process.env.PORT || 3005;
+
+const validateToken = (req, res, next) => {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+
+  if (!token) {
+    return res.status(401).json({ error: "No token provided" });
+  }
+
+  try {
+    const decoded = jwt.decode(token);
+    req.user = { sub: decoded.sub };
+    next();
+  } catch (error) {
+    return res.status(403).json({ error: "Invalid token" });
+  }
+};
 
 app.get("/hanzi", async (req, res) => {
   const { hsk_level, hsk_section } = req.query;
@@ -35,6 +54,7 @@ app.get("/hanzi", async (req, res) => {
 
     res.status(200).json(hanziData);
   } catch (err) {
+    k;
     console.error("Error:", err.message);
     res.status(500).send("Server Error");
   }
@@ -69,6 +89,31 @@ app.post("/translate", async (req, res) => {
     }));
 
     res.status(200).json(result);
+  } catch (err) {
+    console.error("Error:", err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+app.get("/prompts", validateToken, async (req, res) => {
+  try {
+    await connectToDB();
+    const userPrompts = await UserPrompts.find({ user: req.user.sub });
+    res.status(200).json(userPrompts);
+  } catch (err) {
+    console.error("Error:", err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+app.post("/prompts", validateToken, async (req, res) => {
+  const { prompt } = req.body;
+
+  try {
+    await connectToDB();
+    const newPrompt = new UserPrompts({ user: req.user.sub, prompt });
+    await newPrompt.save();
+    res.status(201).json(newPrompt);
   } catch (err) {
     console.error("Error:", err.message);
     res.status(500).send("Server Error");

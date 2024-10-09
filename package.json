@@ -22,6 +22,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "hanzi-writer": "^3.6.0",
+    "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.2",
@@ -39,7 +40,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev-server": "nodemon api/index.js"
   },
   "eslintConfig": {
     "extends": [
