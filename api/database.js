@@ -7,25 +7,15 @@ const uri = `mongodb+srv://paulschofield:${password}@hanzi.zyheasm.mongodb.net/?
 let isConnected = false;
 
 const connectToDB = async () => {
-  mongoose.set("strictQuery", true);
-
-  if (isConnected) {
-    console.log("MongoDB is already connected");
-    return;
-  }
-
   try {
     await mongoose.connect(uri, {
-      dbName: "Hanzi",
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-
-    isConnected = true;
-
-    console.log("MongoDB connected");
+    console.log("Connected to MongoDB");
   } catch (error) {
-    console.log(error);
+    console.error("MongoDB connection error:", error);
+    process.exit(1);
   }
 };
 

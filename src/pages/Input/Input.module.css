@@ -8,9 +8,43 @@
   margin-top: 50px;
   height: 100vh;
   padding: 50px;
+  position: relative;
+}
+
+.loginContainer {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userInfo span {
+  color: #ddd4d4;
+  font-size: 14px;
+}
+
+.logoutButton {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #3a7bc8;
 }
 
 .mainText {
+  margin-top: 60px;
   margin-bottom: 25px;
   font-size: 24px;
 }
@@ -25,6 +59,11 @@
   color: #ddd4d4;
   outline: none;
   transition: all 0.3s ease-in-out;
+}
+
+.signInButton {
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 .form:focus {
@@ -86,4 +125,10 @@
 
 .hoverable-character:hover {
   transform: scale(1.05);
+}
+
+.signInButton {
+  position: absolute;
+  left: 20px;
+  top: 20px;
 }
