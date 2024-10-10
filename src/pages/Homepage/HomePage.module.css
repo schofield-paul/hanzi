@@ -103,7 +103,7 @@ h1 {
 
 .logoReflection {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
-  color: ffffff;
+  color: #ffffff;
   font-size: 14px;
   margin-top: 60px;
   display: flex;
@@ -202,7 +202,7 @@ h1 {
     font-size: 12px;
     margin-left: 0px;
     margin-right: 0px;
-    color: #ebe3e3;
+    color: #ffffff;
   }
 
   .subtitle {
