@@ -15,28 +15,19 @@ export default function Input() {
 
   const { user, handleLoginSuccess, handleLogout } = useAuth();
   const token = localStorage.getItem("token");
-  const { postPrompt } = usePrompts(token);
+  const { prompts, postPrompt, fetchPrompts } = usePrompts(token);
 
   const containsEnglish = (input: string) =>
     /^[a-zA-Z\s.,!?':;()\u2019-]+$/.test(input);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!containsEnglish(inputValue)) {
-      alert("Please enter valid English text.");
-      return;
-    }
-
+  const handleTranslation = async (text: string) => {
     const targetLanguage = "zh";
-    setIsLoading(true);
-
     try {
-      const translation = await fetchData(inputValue, targetLanguage);
+      const translation = await fetchData(text, targetLanguage);
       if (translation && writerContainerRef.current) {
         initializeHanziWriter(writerContainerRef.current, translation);
         if (user) {
-          await postPrompt(inputValue);
+          await postPrompt(text);
         }
       } else {
         alert("Translation failed or no characters to display.");
@@ -46,6 +37,24 @@ export default function Input() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handlePromptSelect = async (prompt: string) => {
+    setInputValue(prompt);
+    setIsLoading(true);
+    await handleTranslation(prompt);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!containsEnglish(inputValue)) {
+      alert("Please enter valid English text.");
+      return;
+    }
+
+    setIsLoading(true);
+    await handleTranslation(inputValue);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,9 +73,15 @@ export default function Input() {
     }
   }, [isLoading]);
 
+  useEffect(() => {
+    if (token) {
+      fetchPrompts();
+    }
+  }, [token, fetchPrompts]);
+
   return (
     <div className={style.contentContainer}>
-      <PromptSideNav />
+      <PromptSideNav onPromptSelect={handlePromptSelect} prompts={prompts} />
       <div className={style.loginContainer}>
         {user ? (
           <div className={style.userInfo}>

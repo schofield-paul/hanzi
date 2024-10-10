@@ -1,41 +1,35 @@
-import { useEffect } from "react";
-import style from "./PromptSideNav.module.css";
-import { useAuth } from "../../hooks/useAuth";
-import { usePrompts } from "../../hooks/usePrompts";
+import { useState } from "react";
+import styles from "./PromptSideNav.module.css";
 
-const PromptSideNav = () => {
-  const { user } = useAuth();
-  const token = localStorage.getItem("token");
-  const { prompts, fetchPrompts, postPrompt } = usePrompts(token);
+interface PromptSideNavProps {
+  onPromptSelect: (prompt: string) => void;
+  prompts: string[];
+}
 
-  useEffect(() => {
-    if (token) {
-      fetchPrompts();
-    }
-  }, [token]);
+export default function PromptSideNav({
+  onPromptSelect,
+  prompts,
+}: PromptSideNavProps) {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsVisible(!isVisible);
+  };
 
   return (
-    <div className={style.container}>
-      PromptSideNav
-      <h1>PROMPTS</h1>
-      {user ? (
-        prompts.length > 0 ? (
-          <div className={style.promptsContainer}>
-            <h2>Your Prompts:</h2>
-            <ul>
-              {prompts.map((prompt, index) => (
-                <li key={index}>{prompt}</li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          <p>No prompts available.</p>
-        )
-      ) : (
-        <p>Please log in to view prompts.</p>
-      )}
-    </div>
+    <>
+      <div
+        className={`${styles.container} ${isVisible ? styles.showSidebar : ""}`}
+      >
+        <h2>Recent Prompts</h2>
+        <ul>
+          {prompts.map((prompt, index) => (
+            <li key={index} onClick={() => onPromptSelect(prompt)}>
+              {prompt}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
-};
-
-export default PromptSideNav;
+}
