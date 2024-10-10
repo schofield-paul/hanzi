@@ -5,6 +5,7 @@ import { initializeHanziWriter } from "../../hooks/initializeHanziWriter";
 import { GoogleLogin } from "@react-oauth/google";
 import { usePrompts } from "../../hooks/usePrompts";
 import { useAuth } from "../../hooks/useAuth";
+import PromptSideNav from "../../components/PromptSideNav/PromptSideNav";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -14,28 +15,19 @@ export default function Input() {
 
   const { user, handleLoginSuccess, handleLogout } = useAuth();
   const token = localStorage.getItem("token");
-  const { prompts, fetchPrompts, postPrompt } = usePrompts(token);
+  const { prompts, postPrompt, fetchPrompts } = usePrompts(token);
 
   const containsEnglish = (input: string) =>
     /^[a-zA-Z\s.,!?':;()\u2019-]+$/.test(input);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (!containsEnglish(inputValue)) {
-      alert("Please enter valid English text.");
-      return;
-    }
-
+  const handleTranslation = async (text: string) => {
     const targetLanguage = "zh";
-    setIsLoading(true);
-
     try {
-      const translation = await fetchData(inputValue, targetLanguage);
+      const translation = await fetchData(text, targetLanguage);
       if (translation && writerContainerRef.current) {
         initializeHanziWriter(writerContainerRef.current, translation);
         if (user) {
-          await postPrompt(inputValue);
+          await postPrompt(text);
         }
       } else {
         alert("Translation failed or no characters to display.");
@@ -45,6 +37,24 @@ export default function Input() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handlePromptSelect = async (prompt: string) => {
+    setInputValue(prompt);
+    setIsLoading(true);
+    await handleTranslation(prompt);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!containsEnglish(inputValue)) {
+      alert("Please enter valid English text.");
+      return;
+    }
+
+    setIsLoading(true);
+    await handleTranslation(inputValue);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,8 +73,15 @@ export default function Input() {
     }
   }, [isLoading]);
 
+  useEffect(() => {
+    if (token) {
+      fetchPrompts();
+    }
+  }, [token, fetchPrompts]);
+
   return (
     <div className={style.contentContainer}>
+      <PromptSideNav onPromptSelect={handlePromptSelect} prompts={prompts} />
       <div className={style.loginContainer}>
         {user ? (
           <div className={style.userInfo}>
@@ -111,18 +128,8 @@ export default function Input() {
           {isLoading ? "Translating..." : "Translate"}
         </button>
       </form>
-      <div className={style.character} ref={writerContainerRef} />
 
-      {user && prompts.length > 0 && (
-        <div className={style.promptsContainer}>
-          <h2>Your Prompts:</h2>
-          <ul>
-            {prompts.map((prompt, index) => (
-              <li key={index}>{prompt}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className={style.character} ref={writerContainerRef} />
     </div>
   );
 }
