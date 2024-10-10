@@ -45,7 +45,7 @@ export default function Homepage() {
             fluency with interactive animations and words.
           </h2>
           <div className={style.buttons}>
-            <Link to="/input">
+            <Link to="/input" onClick={() => window.scrollTo(0, 0)}>
               <button className={style.button}>Get Started</button>
             </Link>
             <Link to="/about">

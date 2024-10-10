@@ -23,11 +23,17 @@ export default function PromptSideNav({
       >
         <h2>Recent Prompts</h2>
         <ul>
-          {prompts.map((prompt, index) => (
-            <li key={index} onClick={() => onPromptSelect(prompt)}>
-              {prompt}
-            </li>
-          ))}
+          {prompts.length > 0 ? (
+            <ul>
+              {prompts.map((prompt, index) => (
+                <li key={index} onClick={() => onPromptSelect(prompt)}>
+                  {prompt}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className={styles.loginMessage}>Login to save prompts</p>
+          )}
         </ul>
       </div>
     </>

@@ -10,7 +10,11 @@ export default function Header() {
         <Link to="/" className={style.link}>
           <h2 className={style.h1}>Hanzi</h2>
         </Link>
-        <Link to="/input" className={style.link}>
+        <Link
+          to="/input"
+          className={style.link}
+          onClick={() => window.scrollTo(0, 0)}
+        >
           <h2 className={style.h2}>Translate</h2>
         </Link>
       </div>
