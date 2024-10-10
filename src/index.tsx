@@ -6,11 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Layout from "./layout";
-import Application from "./pages/Application/ApplicationPage";
 import Homepage from "./pages/Homepage/Homepage";
 import About from "./pages/About/AboutPage";
 import Input from "./pages/Input/Input";
-import SelectStageSection from "./sections/SelectStage/SelectStageSection";
 
 const useGoogleAnalytics = () => {
   const location = useLocation();
@@ -49,8 +47,6 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
-        <Route path="app" element={<Application />} />
-        <Route path="selection" element={<SelectStageSection />} />
         <Route path="input" element={<Input />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<div>404 Not Found</div>} />
