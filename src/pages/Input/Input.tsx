@@ -5,6 +5,7 @@ import { initializeHanziWriter } from "../../hooks/initializeHanziWriter";
 import { GoogleLogin } from "@react-oauth/google";
 import { usePrompts } from "../../hooks/usePrompts";
 import { useAuth } from "../../hooks/useAuth";
+import PromptSideNav from "../../components/PromptSideNav/PromptSideNav";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -14,7 +15,7 @@ export default function Input() {
 
   const { user, handleLoginSuccess, handleLogout } = useAuth();
   const token = localStorage.getItem("token");
-  const { prompts, fetchPrompts, postPrompt } = usePrompts(token);
+  const { postPrompt } = usePrompts(token);
 
   const containsEnglish = (input: string) =>
     /^[a-zA-Z\s.,!?':;()\u2019-]+$/.test(input);
@@ -65,6 +66,7 @@ export default function Input() {
 
   return (
     <div className={style.contentContainer}>
+      <PromptSideNav />
       <div className={style.loginContainer}>
         {user ? (
           <div className={style.userInfo}>
@@ -111,18 +113,8 @@ export default function Input() {
           {isLoading ? "Translating..." : "Translate"}
         </button>
       </form>
-      <div className={style.character} ref={writerContainerRef} />
 
-      {user && prompts.length > 0 && (
-        <div className={style.promptsContainer}>
-          <h2>Your Prompts:</h2>
-          <ul>
-            {prompts.map((prompt, index) => (
-              <li key={index}>{prompt}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className={style.character} ref={writerContainerRef} />
     </div>
   );
 }
