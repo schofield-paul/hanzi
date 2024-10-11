@@ -1,5 +1,5 @@
 body {
-  background-color: #111111;
+  background-color: black;
   color: #ddd4d4;
   font-family: "Roboto", sans-serif;
 }
@@ -59,7 +59,7 @@ body {
   padding: 10px;
   width: 300px;
   font-size: 18px;
-  background-color: #1a1a1a;
+  background-color: black;
   color: #ddd4d4;
   transition: all 0.3s ease-in-out;
 }

@@ -9,12 +9,13 @@
   text-align: left;
   padding: 0;
   background-color: black;
+  margin-top: 0px;
 }
 
 h1 {
   color: white;
   font-size: 56px;
-  padding-top: 4px;
+  margin-top: 10px;
   font-weight: 400;
 }
 
@@ -27,6 +28,7 @@ h1 {
   font-size: 4.5rem;
   margin-bottom: 0.5rem;
   font-size: 2rem;
+  text-align: center;
 }
 
 .subtitle {
@@ -95,10 +97,16 @@ h1 {
 
 .preText {
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
-  color: ffffff;
+  color: #ffffff;
+  background-color: black;
   font-size: 16px;
   padding-top: 115px;
+  margin-bottom: 0px;
   font-weight: 400;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logoReflection {
@@ -214,6 +222,7 @@ h1 {
   .title {
     font-size: 2.5rem;
     max-width: 800px;
+    text-align: center;
   }
 
   .subtitle {
@@ -240,6 +249,7 @@ h1 {
     min-height: 100vh;
     text-align: left;
     padding: 0rem;
+    background-color: black;
   }
 
   .wrapper {
