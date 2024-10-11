@@ -1,12 +1,12 @@
-import style from "./Input.module.css";
 import { useRef, useState, useEffect } from "react";
+import { GoogleLogin } from "@react-oauth/google";
+import { useAuth } from "../../hooks/useAuth";
+import { usePrompts } from "../../hooks/usePrompts";
 import { fetchData } from "../../hooks/fetchData";
 import { initializeHanziWriter } from "../../hooks/initializeHanziWriter";
-import { GoogleLogin } from "@react-oauth/google";
-import { usePrompts } from "../../hooks/usePrompts";
-import { useAuth } from "../../hooks/useAuth";
-import PromptSideNav from "../../components/PromptSideNav/PromptSideNav";
 import { isValidEnglishInput } from "../../utils/inputValidation";
+import PromptSideNav from "../../components/PromptSideNav/PromptSideNav";
+import style from "./Input.module.css";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
