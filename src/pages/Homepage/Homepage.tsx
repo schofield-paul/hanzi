@@ -34,6 +34,12 @@ export default function Homepage() {
   const handleGetStarted = (e: React.MouseEvent) => {
     e.preventDefault();
     window.scrollTo(0, 0);
+    document
+      .querySelector('meta[name="viewport"]')
+      ?.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+      );
     navigate("/input");
   };
 
