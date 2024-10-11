@@ -17,8 +17,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const translationRoutes = require("./routes/translationRoutes");
-const promptRoutes = require("./routes/promptRoutes");
+const translationRoutes = require("./translationAPI");
+const promptRoutes = require("./promptAPI");
 
 const port = process.env.PORT || 3005;
 
