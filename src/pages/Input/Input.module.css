@@ -1,20 +1,23 @@
-.contentContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body {
   background-color: #111111;
   color: #ddd4d4;
   font-family: "Roboto", sans-serif;
-  margin-top: 50px;
-  height: 100vh;
-  padding: 50px;
+}
+
+.contentContainer {
   position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin-top: 50px;
+  padding: 50px;
 }
 
 .loginContainer {
   position: absolute;
-  top: 20px;
   right: 20px;
+  top: 20px;
 }
 
 .userInfo {
@@ -24,18 +27,18 @@
 }
 
 .userInfo span {
-  color: #ddd4d4;
   font-size: 14px;
+  color: #ddd4d4;
 }
 
 .logoutButton {
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
   background-color: #4a90e2;
   color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
   cursor: pointer;
-  font-size: 14px;
   transition: background-color 0.3s ease;
 }
 
@@ -44,26 +47,21 @@
 }
 
 .mainText {
-  margin-top: 60px;
   margin-bottom: 25px;
+  margin-top: 60px;
   font-size: 24px;
 }
 
 .form {
-  padding: 10px;
-  font-size: 18px;
-  width: 300px;
-  border-radius: 25px;
   border: 2px solid #ddd4d4;
+  border-radius: 25px;
+  outline: none;
+  padding: 10px;
+  width: 300px;
+  font-size: 18px;
   background-color: #1a1a1a;
   color: #ddd4d4;
-  outline: none;
   transition: all 0.3s ease-in-out;
-}
-
-.signInButton {
-  margin-left: 20px;
-  margin-top: 20px;
 }
 
 .form:focus {
@@ -71,35 +69,18 @@
   box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
 }
 
-.character {
-  margin-top: 10px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  max-width: 600px;
-  overflow-x: hidden;
-}
-
-.character-container {
-  display: inline-block;
-  max-width: 100px;
-  overflow: hidden;
-  text-align: center;
-  white-space: nowrap;
-}
-
 .submitButton {
+  border: 1px solid #ddd4d4;
+  border-radius: 25px;
+  height: 44px;
   margin-left: 10px;
   padding: 0 20px;
-  height: 44px; /* Match the height of the input field (40px + 2px border on top and bottom) */
-  background-color: black;
-  color: #ddd4d4;
-  border: 1px solid #ddd4d4;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 25px;
   font-size: 16px;
   line-height: 40px;
+  background-color: black;
+  color: #ddd4d4;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .submitButton:hover {
@@ -108,14 +89,31 @@
 }
 
 .submitButton.active {
+  border: 2px solid #4a90e2;
   background-color: #4a90e2;
   color: black;
-  border: 2px solid #4a90e2;
 }
 
 .submitButton.active:hover {
   background-color: #3e82cf;
   border-color: #3e82cf;
+}
+
+.character {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 600px;
+  overflow-x: hidden;
+}
+
+.character-container {
+  display: inline-block;
+  max-width: 100px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .hoverable-character {
@@ -131,4 +129,6 @@
   position: absolute;
   left: 20px;
   top: 20px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
