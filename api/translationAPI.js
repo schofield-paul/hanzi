@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const { connectToTranslationAPI } = require("../translationConnection.js");
+const { connectToTranslationAPI } = require("./translationConnection.js");
 
 router.post("/", async (req, res) => {
   const { text, targetLanguage } = req.body;

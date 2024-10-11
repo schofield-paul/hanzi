@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const UserPrompts = require("../userPromptsModel");
-const { connectToDB } = require("../database.js");
+const UserPrompts = require("./userPromptsModel");
+const { connectToDB } = require("./database.js");
 
 router.get("/", async (req, res) => {
   try {
