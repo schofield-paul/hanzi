@@ -1,9 +1,9 @@
-// fooRoutes.js
 const express = require("express");
 const router = express.Router();
-const { connectToTranslationAPI } = require("./translationConnection.js");
+const axios = require("axios");
+const { connectToTranslationAPI } = require("../translationConnection.js");
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { text, targetLanguage } = req.body;
 
   if (!text || !targetLanguage) {
@@ -14,11 +14,26 @@ router.get("/", async (req, res) => {
 
   try {
     const translatedText = await connectToTranslationAPI(text, targetLanguage);
-    console.log("Translated Text:", translatedText);
 
-    res.status(200).json(translatedText);
+    const fastApiResponse = await axios.post(
+      "https://pinyin-service.onrender.com/translate-to-pinyin",
+      {
+        text: translatedText,
+        tone_numbers: false,
+        spaces: true,
+      }
+    );
+
+    const pinyinArray = fastApiResponse.data.pinyin.split(" ");
+
+    const result = translatedText.split("").map((char, i) => ({
+      character: char,
+      pinyin: pinyinArray[i] || "",
+    }));
+
+    res.status(200).json(result);
   } catch (err) {
-    console.error("Error:", err.message, err.stack);
+    console.error("Error:", err.message);
     res.status(500).send("Server Error");
   }
 });
