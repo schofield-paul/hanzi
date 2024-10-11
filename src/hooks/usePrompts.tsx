@@ -33,10 +33,7 @@ export function usePrompts(token: string | null) {
           }
         );
 
-        setPrompts((prevPrompts) => {
-          const newPrompts = [...prevPrompts, prompt];
-          return newPrompts;
-        });
+        setPrompts((prevPrompts) => [...prevPrompts, prompt]);
       } catch (error) {
         console.error("Failed to post prompt:", error);
       }
@@ -44,5 +41,20 @@ export function usePrompts(token: string | null) {
     [token]
   );
 
-  return { prompts, fetchPrompts, postPrompt };
+  const deleteAllPrompts = useCallback(async () => {
+    if (!token) return;
+
+    try {
+      await axios.delete("https://hanzi-app.onrender.com/prompts/all", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setPrompts([]);
+      await fetchPrompts();
+    } catch (error) {
+      console.error("Failed to delete all prompts:", error);
+      throw error;
+    }
+  }, [token, fetchPrompts]);
+
+  return { prompts, fetchPrompts, postPrompt, deleteAllPrompts };
 }

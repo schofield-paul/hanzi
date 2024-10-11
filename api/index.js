@@ -18,7 +18,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const Hanzi = require("./hanziModel.js");
 const { connectToDB } = require("./database.js");
 const { connectToTranslationAPI } = require("./translationConnection.js");
 const UserPrompts = require("./userPromptsModel");
@@ -41,24 +40,6 @@ const validateToken = (req, res, next) => {
     return res.status(403).json({ error: "Invalid token" });
   }
 };
-
-app.get("/hanzi", async (req, res) => {
-  const { hsk_level, hsk_section } = req.query;
-  try {
-    await connectToDB();
-
-    const hanziData = await Hanzi.find({
-      hsk_level: hsk_level,
-      hsk_section: hsk_section,
-    });
-
-    res.status(200).json(hanziData);
-  } catch (err) {
-    k;
-    console.error("Error:", err.message);
-    res.status(500).send("Server Error");
-  }
-});
 
 app.post("/translate", async (req, res) => {
   const { text, targetLanguage } = req.body;
@@ -117,6 +98,22 @@ app.post("/prompts", validateToken, async (req, res) => {
   } catch (err) {
     console.error("Error:", err.message);
     res.status(500).send("Server Error");
+  }
+});
+
+app.delete("/prompts/all", validateToken, async (req, res) => {
+  try {
+    await connectToDB();
+    const prompts = await UserPrompts.find({ user: req.user.sub });
+    let deletedCount = 0;
+    for (const prompt of prompts) {
+      await UserPrompts.findByIdAndDelete(prompt._id);
+      deletedCount++;
+    }
+    res.status(200).json({ message: "All prompts deleted", deletedCount });
+  } catch (err) {
+    console.error("Error deleting prompts:", err);
+    res.status(500).json({ error: "Server Error", details: err.message });
   }
 });
 

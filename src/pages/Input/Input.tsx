@@ -17,7 +17,13 @@ export default function Input() {
 
   const { user, handleLoginSuccess, handleLogout } = useAuth();
   const token = localStorage.getItem("token");
-  const { prompts, postPrompt, fetchPrompts } = usePrompts(token);
+  const { prompts, postPrompt, fetchPrompts, deleteAllPrompts } =
+    usePrompts(token);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    console.log("Stored token:", storedToken);
+  }, []);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -77,9 +83,21 @@ export default function Input() {
     }
   };
 
+  const handleDeleteAllPrompts = async () => {
+    try {
+      await deleteAllPrompts();
+    } catch (error) {
+      console.error("Error deleting all prompts:", error);
+    }
+  };
+
   return (
     <div className={style.contentContainer}>
-      <PromptSideNav onPromptSelect={handlePromptSelect} prompts={prompts} />
+      <PromptSideNav
+        onPromptSelect={handlePromptSelect}
+        prompts={prompts}
+        onDeleteAllPrompts={handleDeleteAllPrompts}
+      />
       <div className={style.loginContainer}>
         {user ? (
           <div className={style.userInfo}>
