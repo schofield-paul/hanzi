@@ -64,6 +64,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@playwright/test": "^1.47.2",
+    "@testing-library/jest-dom": "^6.5.0",
     "@types/testing-library__jest-dom": "^6.0.0",
     "playwright": "^1.47.2"
   }
