@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Quote from "../../components/Quote/Quote";
@@ -9,6 +9,8 @@ import { cardData, cardData2, cardData3 } from "../../data/cardData";
 import style from "./HomePage.module.css";
 
 export default function Homepage() {
+  const navigate = useNavigate();
+
   function renderCarousel(data: typeof cardData, containerClass: string) {
     return (
       <div className={style.carouselWrapper}>
@@ -29,6 +31,12 @@ export default function Homepage() {
   const repeatedCardData2 = Array(30).fill(cardData2).flat();
   const repeatedCardData3 = Array(30).fill(cardData3).flat();
 
+  const handleGetStarted = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+    navigate("/input");
+  };
+
   return (
     <>
       <div className={style.wrapper}>
@@ -45,14 +53,13 @@ export default function Homepage() {
             fluency with interactive animations and words.
           </h2>
           <div className={style.buttons}>
-            <Link to="/input" onClick={() => window.scrollTo(0, 0)}>
-              <button
-                className={style.button}
-                style={{ touchAction: "manipulation" }}
-              >
-                Get Started
-              </button>
-            </Link>
+            <button
+              className={style.button}
+              onClick={handleGetStarted}
+              style={{ touchAction: "manipulation" }}
+            >
+              Get Started
+            </button>
             <Link to="/about">
               <button className={style.learnMore}>
                 <span>Learn More</span>{" "}
