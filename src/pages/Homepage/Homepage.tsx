@@ -46,7 +46,12 @@ export default function Homepage() {
           </h2>
           <div className={style.buttons}>
             <Link to="/input" onClick={() => window.scrollTo(0, 0)}>
-              <button className={style.button}>Get Started</button>
+              <button
+                className={style.button}
+                style={{ touchAction: "manipulation" }}
+              >
+                Get Started
+              </button>
             </Link>
             <Link to="/about">
               <button className={style.learnMore}>
