@@ -6,6 +6,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { usePrompts } from "../../hooks/usePrompts";
 import { useAuth } from "../../hooks/useAuth";
 import PromptSideNav from "../../components/PromptSideNav/PromptSideNav";
+import { isValidEnglishInput } from "../../utils/inputValidation";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -16,9 +17,6 @@ export default function Input() {
   const { user, handleLoginSuccess, handleLogout } = useAuth();
   const token = localStorage.getItem("token");
   const { prompts, postPrompt, fetchPrompts } = usePrompts(token);
-
-  const containsEnglish = (input: string) =>
-    /^[a-zA-Z\s.,!?':;()\u2019-]+$/.test(input);
 
   const handleTranslation = async (text: string) => {
     const targetLanguage = "zh";
@@ -48,13 +46,12 @@ export default function Input() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!containsEnglish(inputValue)) {
-      alert("Please enter valid English text.");
-      return;
+    if (isValidEnglishInput(inputValue)) {
+      setIsLoading(true);
+      await handleTranslation(inputValue);
+    } else {
+      console.log("Please enter English text only");
     }
-
-    setIsLoading(true);
-    await handleTranslation(inputValue);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -121,9 +118,9 @@ export default function Input() {
         <button
           type="submit"
           className={`${style.submitButton} ${
-            inputValue.trim() ? style.active : ""
+            isValidEnglishInput(inputValue) ? style.active : ""
           }`}
-          disabled={isLoading}
+          disabled={isLoading || !isValidEnglishInput(inputValue)}
         >
           {isLoading ? "Translating..." : "Translate"}
         </button>
