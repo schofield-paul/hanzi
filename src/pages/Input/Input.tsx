@@ -11,6 +11,7 @@ import { isValidEnglishInput } from "../../utils/inputValidation";
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -18,24 +19,23 @@ export default function Input() {
   const token = localStorage.getItem("token");
   const { prompts, postPrompt, fetchPrompts } = usePrompts(token);
 
-  const handleTranslation = async (text: string) => {
-    const targetLanguage = "zh";
-    try {
-      const translation = await fetchData(text, targetLanguage);
-      if (translation && writerContainerRef.current) {
-        initializeHanziWriter(writerContainerRef.current, translation);
-        if (user) {
-          await postPrompt(text);
-        }
-      } else {
-        alert("Translation failed or no characters to display.");
-      }
-    } catch (error: unknown) {
-      alert(error);
-    } finally {
-      setIsLoading(false);
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (token) {
+      fetchPrompts();
+    }
+  }, [token, fetchPrompts]);
 
   const handlePromptSelect = async (prompt: string) => {
     setInputValue(prompt);
@@ -58,23 +58,24 @@ export default function Input() {
     setInputValue(e.target.value);
   };
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
+  const handleTranslation = async (text: string) => {
+    const targetLanguage = "zh";
+    try {
+      const translation = await fetchData(text, targetLanguage);
+      if (translation && writerContainerRef.current) {
+        initializeHanziWriter(writerContainerRef.current, translation);
+        if (user) {
+          await postPrompt(text);
+        }
+      } else {
+        alert("Translation failed or no characters to display.");
+      }
+    } catch (error: unknown) {
+      alert(error);
+    } finally {
+      setIsLoading(false);
     }
-  }, []);
-
-  useEffect(() => {
-    if (!isLoading && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (token) {
-      fetchPrompts();
-    }
-  }, [token, fetchPrompts]);
+  };
 
   return (
     <div className={style.contentContainer}>
