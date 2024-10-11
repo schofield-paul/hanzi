@@ -1,5 +1,3 @@
-// api.ts
-
 interface TranslationObject {
   character: string;
   pinyin: string;

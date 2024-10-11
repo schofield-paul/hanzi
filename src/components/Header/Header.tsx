@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import classNames from "classnames";
-import style from "./Header.module.css";
 import { Link } from "react-router-dom";
+import style from "./Header.module.css";
 
 export default function Header() {
   return (

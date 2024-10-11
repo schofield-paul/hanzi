@@ -1,14 +1,14 @@
 // @ts-nocheck
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Layout from "./layout";
 import Homepage from "./pages/Homepage/Homepage";
 import About from "./pages/About/AboutPage";
 import Input from "./pages/Input/Input";
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 
 const useGoogleAnalytics = () => {
   const location = useLocation();

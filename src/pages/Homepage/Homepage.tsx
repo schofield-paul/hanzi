@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import style from "./HomePage.module.css";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Quote from "../../components/Quote/Quote";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
-import { cardData, cardData2, cardData3 } from "../../data/cardData";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import About from "../About/AboutPage";
+import { cardData, cardData2, cardData3 } from "../../data/cardData";
+import style from "./HomePage.module.css";
 
 export default function Homepage() {
   function renderCarousel(data: typeof cardData, containerClass: string) {
