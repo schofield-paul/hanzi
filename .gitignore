@@ -24,4 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 mongodbConnection.js
+hanzi-translation-aedd447dba71.json
 ```

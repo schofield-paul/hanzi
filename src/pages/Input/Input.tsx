@@ -11,6 +11,7 @@ import style from "./Input.module.css";
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [translatedText, setTranslatedText] = useState<string>("");
 
   const writerContainerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -22,7 +23,6 @@ export default function Input() {
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
-    console.log("Stored token:", storedToken);
   }, []);
 
   useEffect(() => {
@@ -60,6 +60,49 @@ export default function Input() {
     }
   };
 
+  const handleSynthesize = async (translatedText: string) => {
+    try {
+      const response = await fetch("http://localhost:3005/synthesize", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: translatedText }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const audioBlob = await response.blob();
+      console.log("Audio blob size:", audioBlob.size, "bytes");
+      console.log("Audio blob type:", audioBlob.type);
+
+      if (audioBlob.size === 0) {
+        throw new Error("Received empty audio blob");
+      }
+
+      const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl);
+
+      audio.onerror = (e) => {
+        console.error("Audio playback error:", e);
+      };
+
+      audio.oncanplaythrough = async () => {
+        try {
+          await audio.play();
+        } catch (playError) {
+          console.error("Error playing audio:", playError);
+        }
+      };
+
+      audio.load();
+    } catch (error) {
+      console.error("Error synthesizing speech:", error);
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
@@ -68,6 +111,9 @@ export default function Input() {
     const targetLanguage = "zh";
     try {
       const translation = await fetchData(text, targetLanguage);
+      setTranslatedText(
+        translation ? translation.map((t) => t.character).join("") : ""
+      );
       if (translation && writerContainerRef.current) {
         initializeHanziWriter(writerContainerRef.current, translation);
         if (user) {
@@ -144,7 +190,6 @@ export default function Input() {
           {isLoading ? "Translating..." : "Translate"}
         </button>
       </form>
-
       <div className={style.character} ref={writerContainerRef} />
     </div>
   );

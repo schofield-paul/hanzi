@@ -19,6 +19,7 @@ app.use(cors(corsOptions));
 
 const translationRoutes = require("./translationAPI");
 const promptRoutes = require("./promptAPI");
+const synthesizeSpeech = require("./synthesizeSpeech");
 
 const port = process.env.PORT || 3005;
 
@@ -41,6 +42,7 @@ const validateToken = (req, res, next) => {
 
 app.use("/translate", translationRoutes);
 app.use("/prompts", validateToken, promptRoutes);
+app.use("/synthesize", synthesizeSpeech);
 
 app.listen(port, () => {
   console.log(`Server is running on ${port}`);
