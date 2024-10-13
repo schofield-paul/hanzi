@@ -64,7 +64,7 @@ export default function Input() {
     if (translatedText) {
       try {
         const response = await fetch(
-          "https://hanzi-translation.vercel.app/synthesize",
+          "https://hanzi-app.onrender.com/synthesize",
           {
             method: "POST",
             headers: {
