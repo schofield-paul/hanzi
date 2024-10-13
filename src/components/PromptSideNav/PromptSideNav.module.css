@@ -1,5 +1,5 @@
 .container {
-  width: 250px;
+  width: 225px;
   height: 100%;
   background-color: black;
   position: fixed;
@@ -46,7 +46,7 @@
   background-color: #2a2a2a;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .container {
     transform: translateX(-100%);
   }

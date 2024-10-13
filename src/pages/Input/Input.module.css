@@ -132,3 +132,27 @@ body {
   margin-left: 20px;
   margin-top: 20px;
 }
+
+.synthesizeButton {
+  border: 1px solid #ddd4d4;
+  border-radius: 25px;
+  height: 44px;
+  margin-left: 10px;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 40px;
+  background-color: black;
+  color: #ddd4d4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.synthesizeButton:hover {
+  background-color: #1a1a1a;
+  border-color: #4a90e2;
+}
+
+.synthesizeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

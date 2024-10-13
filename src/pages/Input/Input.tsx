@@ -60,46 +60,48 @@ export default function Input() {
     }
   };
 
-  const handleSynthesize = async (translatedText: string) => {
-    try {
-      const response = await fetch("http://localhost:3005/synthesize", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ text: translatedText }),
-      });
+  const handleSynthesize = async () => {
+    if (translatedText) {
+      try {
+        const response = await fetch("http://localhost:3005/synthesize", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: translatedText }),
+        });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const audioBlob = await response.blob();
-      console.log("Audio blob size:", audioBlob.size, "bytes");
-      console.log("Audio blob type:", audioBlob.type);
-
-      if (audioBlob.size === 0) {
-        throw new Error("Received empty audio blob");
-      }
-
-      const audioUrl = URL.createObjectURL(audioBlob);
-      const audio = new Audio(audioUrl);
-
-      audio.onerror = (e) => {
-        console.error("Audio playback error:", e);
-      };
-
-      audio.oncanplaythrough = async () => {
-        try {
-          await audio.play();
-        } catch (playError) {
-          console.error("Error playing audio:", playError);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-      };
 
-      audio.load();
-    } catch (error) {
-      console.error("Error synthesizing speech:", error);
+        const audioBlob = await response.blob();
+
+        if (audioBlob.size === 0) {
+          throw new Error("Received empty audio blob");
+        }
+
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+
+        audio.onerror = (e) => {
+          console.error("Audio playback error:", e);
+        };
+
+        audio.oncanplaythrough = async () => {
+          try {
+            await audio.play();
+          } catch (playError) {
+            console.error("Error playing audio:", playError);
+          }
+        };
+
+        audio.load();
+      } catch (error) {
+        console.error("Error synthesizing speech:", error);
+      }
+    } else {
+      console.log("No translated text to synthesize");
     }
   };
 
@@ -189,6 +191,14 @@ export default function Input() {
           disabled={isLoading || !isValidEnglishInput(inputValue)}
         >
           {isLoading ? "Translating..." : "Translate"}
+        </button>
+        <button
+          type="button"
+          onClick={handleSynthesize}
+          className={style.synthesizeButton}
+          disabled={!translatedText}
+        >
+          Synthesize
         </button>
       </form>
       <div className={style.character} ref={writerContainerRef} />
