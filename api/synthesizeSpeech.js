@@ -1,12 +1,16 @@
 const textToSpeech = require("@google-cloud/text-to-speech");
-require("dotenv").config();
+const path = require("path");
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
+
 const express = require("express");
 const router = express.Router();
+
+const privateKey = process.env.GOOGLE_PRIVATE_KEY;
 
 const client = new textToSpeech.TextToSpeechClient({
   credentials: {
     client_email: process.env.GOOGLE_CLIENT_EMAIL,
-    private_key: process.env.GOOGLE_PRIVATE_KEY,
+    private_key: privateKey,
   },
   projectId: process.env.GOOGLE_PROJECT_ID,
 });
