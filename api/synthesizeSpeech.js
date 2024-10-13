@@ -1,18 +1,14 @@
 const textToSpeech = require("@google-cloud/text-to-speech");
-const fs = require("fs");
-const util = require("util");
-const path = require("path");
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 
-const credentialPath = path.join(
-  __dirname,
-  "..",
-  "hanzi-translation-aedd447dba71.json"
-);
-
 const client = new textToSpeech.TextToSpeechClient({
-  keyFilename: credentialPath,
+  credentials: {
+    client_email: process.env.GOOGLE_CLIENT_EMAIL,
+    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  },
+  projectId: process.env.GOOGLE_PROJECT_ID,
 });
 
 router.post("/", async (req, res) => {
