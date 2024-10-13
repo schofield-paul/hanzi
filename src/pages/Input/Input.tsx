@@ -140,6 +140,7 @@ export default function Input() {
   return (
     <div className={style.contentContainer}>
       <PromptSideNav
+        isLoggedIn={!!user}
         onPromptSelect={handlePromptSelect}
         prompts={prompts}
         onDeleteAllPrompts={handleDeleteAllPrompts}

@@ -5,12 +5,14 @@ interface PromptSideNavProps {
   onPromptSelect: (prompt: string) => void;
   prompts: string[];
   onDeleteAllPrompts: () => Promise<void>;
+  isLoggedIn: boolean;
 }
 
 export default function PromptSideNav({
   onPromptSelect,
   prompts,
   onDeleteAllPrompts,
+  isLoggedIn,
 }: PromptSideNavProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -49,6 +51,8 @@ export default function PromptSideNav({
               </li>
             ))}
           </ul>
+        ) : isLoggedIn ? (
+          <p className={styles.noPromptsMessage}>No prompts saved</p>
         ) : (
           <p className={styles.loginMessage}>Login to save prompts</p>
         )}
