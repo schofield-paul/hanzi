@@ -63,13 +63,16 @@ export default function Input() {
   const handleSynthesize = async () => {
     if (translatedText) {
       try {
-        const response = await fetch("http://localhost:3005/synthesize", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ text: translatedText }),
-        });
+        const response = await fetch(
+          "https://hanzi-translation.vercel.app/synthesize",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ text: translatedText }),
+          }
+        );
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
