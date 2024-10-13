@@ -17,14 +17,14 @@ const client = new textToSpeech.TextToSpeechClient({
 
 router.post("/", async (req, res) => {
   try {
-    const text = req.body.text;
+    const { text, languageCode = "cmn-CN", ssmlGender = "NEUTRAL" } = req.body;
     if (!text) {
       return res.status(400).json({ error: "Text input is required" });
     }
 
     const request = {
       input: { text: text },
-      voice: { languageCode: "cmn-CN", ssmlGender: "FEMALE" },
+      voice: { languageCode, ssmlGender },
       audioConfig: { audioEncoding: "MP3" },
     };
 
