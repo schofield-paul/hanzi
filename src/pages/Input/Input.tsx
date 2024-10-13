@@ -195,14 +195,6 @@ export default function Input() {
         >
           {isLoading ? "Translating..." : "Translate"}
         </button>
-        <button
-          type="button"
-          onClick={handleSynthesize}
-          className={style.synthesizeButton}
-          disabled={!translatedText}
-        >
-          Synthesize
-        </button>
       </form>
       <div className={style.character} ref={writerContainerRef} />
     </div>
