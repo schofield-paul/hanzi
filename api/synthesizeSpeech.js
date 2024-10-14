@@ -14,7 +14,7 @@ console.log(
     : "No key provided"
 );
 
-const privateKey = process.env.GOOGLE_PRIVATE_KEY;
+const privateKey = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n");
 
 const client = new textToSpeech.TextToSpeechClient({
   credentials: {
