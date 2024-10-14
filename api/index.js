@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 app.use(express.json());
-console.log("hello");
 
 const corsOptions = {
   origin: [
