@@ -7,6 +7,7 @@ import { initializeHanziWriter } from "../../hooks/initializeHanziWriter";
 import { isValidEnglishInput } from "../../utils/inputValidation";
 import PromptSideNav from "../../components/PromptSideNav/PromptSideNav";
 import style from "./Input.module.css";
+import { handleSynthesize } from "../../hooks/handleSynthesize";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -60,52 +61,8 @@ export default function Input() {
     }
   };
 
-  const handleSynthesize = async () => {
-    if (translatedText) {
-      try {
-        const response = await fetch(
-          "https://hanzi-app.onrender.com/synthesize",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ text: translatedText }),
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const audioBlob = await response.blob();
-
-        if (audioBlob.size === 0) {
-          throw new Error("Received empty audio blob");
-        }
-
-        const audioUrl = URL.createObjectURL(audioBlob);
-        const audio = new Audio(audioUrl);
-
-        audio.onerror = (e) => {
-          console.error("Audio playback error:", e);
-        };
-
-        audio.oncanplaythrough = async () => {
-          try {
-            await audio.play();
-          } catch (playError) {
-            console.error("Error playing audio:", playError);
-          }
-        };
-
-        audio.load();
-      } catch (error) {
-        console.error("Error synthesizing speech:", error);
-      }
-    } else {
-      console.log("No translated text to synthesize");
-    }
+  const handleSynthesizeClick = () => {
+    handleSynthesize(translatedText);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -197,7 +154,7 @@ export default function Input() {
         </button>
         <button
           type="button"
-          onClick={handleSynthesize}
+          onClick={handleSynthesizeClick}
           className={style.synthesizeButton}
           disabled={!translatedText}
         >
