@@ -16,11 +16,16 @@ export default function Homepage() {
       <div className={style.carouselWrapper}>
         <div className={containerClass}>
           {data.map((card, index) => (
-            <CarouselCard
+            <Link
+              to="/input"
+              state={{ cardContent: card.content }}
               key={index}
-              title={card.title}
-              content={card.content}
-            />
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+            >
+              <CarouselCard title={card.title} content={card.content} />
+            </Link>
           ))}
         </div>
       </div>

@@ -8,6 +8,7 @@ import { isValidEnglishInput } from "../../utils/inputValidation";
 import PromptSideNav from "../../components/PromptSideNav/PromptSideNav";
 import style from "./Input.module.css";
 import { handleSynthesize } from "../../hooks/handleSynthesize";
+import { useLocation } from "react-router-dom";
 
 export default function Input() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -21,6 +22,9 @@ export default function Input() {
   const token = localStorage.getItem("token");
   const { prompts, postPrompt, fetchPrompts, deleteAllPrompts } =
     usePrompts(token);
+
+  const location = useLocation();
+  const { cardContent } = location.state || {};
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -43,6 +47,13 @@ export default function Input() {
       fetchPrompts();
     }
   }, [token, fetchPrompts]);
+
+  useEffect(() => {
+    if (cardContent) {
+      setInputValue(cardContent);
+      handleTranslation(cardContent);
+    }
+  }, [cardContent]);
 
   const handlePromptSelect = async (prompt: string) => {
     setInputValue(prompt);
@@ -70,6 +81,7 @@ export default function Input() {
   };
 
   const handleTranslation = async (text: string) => {
+    setIsLoading(true);
     const targetLanguage = "zh";
     try {
       const translation = await fetchData(text, targetLanguage);
