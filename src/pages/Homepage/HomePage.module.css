@@ -130,6 +130,10 @@ h1 {
   cursor: pointer;
 }
 
+.carouselContainer:hover {
+  animation-play-state: paused;
+}
+
 .carouselContainerReverse {
   display: flex;
   gap: 0px;
@@ -138,6 +142,10 @@ h1 {
   width: max-content;
   animation: moveCardsReverse 600s linear infinite;
   cursor: pointer;
+}
+
+.carouselContainerReverse:hover {
+  animation-play-state: paused;
 }
 
 .carouselWrapper {
