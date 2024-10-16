@@ -58,22 +58,23 @@ h1 {
   background: black;
   color: #ffffff;
   border: none;
-  padding: 12px 25px;
+  padding: 17px 25px;
+
   font-family: "Microsoft Sans Serif", Arial, sans-serif;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 25px;
   transition: all 0.3s ease;
   position: relative;
-  margin-top: 5px;
+  align-self: flex-start;
 }
 
 .learnMore::after {
   content: "";
   position: absolute;
-  width: 70%;
+  width: 65%;
   height: 0.5px;
-  bottom: 8px;
+  bottom: 14px;
   left: 15%;
   background-color: #ffffff;
   opacity: 0;
@@ -130,10 +131,6 @@ h1 {
   cursor: pointer;
 }
 
-.carouselContainer:hover {
-  animation-play-state: paused;
-}
-
 .carouselContainerReverse {
   display: flex;
   gap: 0px;
@@ -142,10 +139,6 @@ h1 {
   width: max-content;
   animation: moveCardsReverse 600s linear infinite;
   cursor: pointer;
-}
-
-.carouselContainerReverse:hover {
-  animation-play-state: paused;
 }
 
 .carouselWrapper {

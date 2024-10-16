@@ -38,7 +38,7 @@ const allCardData = [
   },
   {
     title: "Card 10",
-    content: "What time is it?",
+    content: "What is the temperature?",
   },
   {
     title: "Card 11",

@@ -48,6 +48,14 @@ export default function Homepage() {
     navigate("/input");
   };
 
+  const handleLearnMore = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const aboutSection = document.getElementById("about-section");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <div className={style.wrapper}>
@@ -71,20 +79,20 @@ export default function Homepage() {
             >
               Get Started
             </button>
-            <Link to="/about">
-              <button className={style.learnMore}>
-                <span>Learn More</span>{" "}
-                <ChevronRightIcon className={style.iconAdjust} />
-              </button>
-            </Link>
+            <button className={style.learnMore} onClick={handleLearnMore}>
+              <span>Learn More</span>{" "}
+              <ChevronRightIcon className={style.iconAdjust} />
+            </button>
           </div>
           {renderCarousel(repeatedCardData, style.carouselContainer)}
           {renderCarousel(repeatedCardData2, style.carouselContainerReverse)}
           {renderCarousel(repeatedCardData3, style.carouselContainer)}
         </div>
-        <About />
-        <Quote />
       </div>
+      <div id="about-section">
+        <About />
+      </div>
+      <Quote />
     </>
   );
 }
