@@ -221,15 +221,27 @@ h1 {
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .title {
-    font-size: 2.5rem;
-    max-width: 800px;
+    font-size: 3rem;
+    max-width: 90%;
     text-align: center;
+    margin: 0 auto;
   }
 
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #ebe3e3;
-    max-width: 300px;
+    max-width: 80%;
+    margin: 1rem auto;
+  }
+
+  .app {
+    padding: 2rem;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
   }
 }
 
