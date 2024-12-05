@@ -23,6 +23,24 @@
   line-height: 1.6;
   margin: 0 0 20px 0;
   font-style: italic;
+  position: relative;
+  padding: 0 25px;
+}
+
+.quoteText::before,
+.quoteText::after {
+  content: '"';
+  position: absolute;
+  font-size: 24px;
+  color: #888;
+}
+
+.quoteText::before {
+  left: 0;
+}
+
+.quoteText::after {
+  right: 0;
 }
 
 .quoteAuthor {
